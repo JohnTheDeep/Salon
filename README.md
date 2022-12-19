@@ -1,6 +1,7 @@
 # Salon
-Repository of CRM for beauti-salon
+Repository of CRM-system for beauti-salon
 <h1>CRM-Система для учета деятельности салона красоты</h1>
+Для краткости показана лишь малая часть функционала.
 <h4>Главный функционал приложения:</h4>
 
 - Учет кадров(администраторы,мастера) и их детальная настройка.
@@ -10,9 +11,11 @@ Repository of CRM for beauti-salon
 - Рассылка писем сотрудникам и администраторам с их статистикой за день.
 - Генерация отчетов по различным критериям.
 <h4>Авторизация</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208506688-a43f64f1-2922-40fb-9d27-95719dec7258.png"/>
+
+<img src="https://user-images.githubusercontent.com/106916560/208525995-f704cff5-e410-48f5-9fdd-eb094895111b.png"/>
 <h4>Главное окно</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208506384-37454378-b5ad-4c5e-8db1-b499d0670d3c.png"/>
+
+<img src="https://user-images.githubusercontent.com/106916560/208526624-a6d019ac-cd10-44ae-b4e4-d7dc42f0e2a8.png"/>
 <p>Главное окно, функционал :
   
   - Добавление факта услуги.
@@ -21,28 +24,28 @@ Repository of CRM for beauti-salon
   - Система напоминаний.
 </p>
 <h4>Сверка</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208506782-7d07513a-cad6-4e0e-95c2-0ca3298ddcc1.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208526781-5e43b6de-554b-46f0-ac54-61341b539714.png"/>
 <p>Окно сверки, функционал :
   Возможность сверки оказанных услуг и дополнительных продаж за период, так-же зп сотрудников.
 </p>
 <h4>Учет кадров</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208506957-1da3c57d-2f96-4b19-8e1f-8c6b6772099c.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208527121-7efe6d24-ff41-44c7-ae5d-598669d468aa.png"/>
 <p>Окно для взаимодействия с мастерами и админами, редактирование, удаление и добавление необходимой информации,<br> подключение оказываемой услуги.</p>
 <h4>Настройка мастера</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208506985-9d9631b1-e499-4472-bd5e-ec6ebb2254de.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208527200-0c0057d5-fe12-40e5-b535-e352da8d6e7c.png"/>
 <p>
   Возможность настройки учетной записи сотрудника, и подключение услуг.
 </p>
 <h4>Отчеты</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208507013-c6dea0c3-ecb4-4437-8a7e-3a9875617e77.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208527289-34bbfb99-7e0f-4748-9a46-ca2baff61610.png"/>
 <p>Отчетная документация, генерация отчетов о деятельности салона по различным критериям.
   Есть режим детализированных, общих отчетов, существует персональный отчет о деятельности мастера\админа.
 </p>
 <h4>Смены</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208507029-03c5dd49-ab0f-4361-8daa-8467f6bc536c.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208527450-58d4d9c4-8db0-4085-8432-19ecaacb6d1f.png"/>
 <p>Просмотр и редактирование(при необходимости) статистики существующих смен.
 </p>
 <h4>Авансы</h4>
-<img src="https://user-images.githubusercontent.com/106916560/208507050-9859a194-aefb-4940-af9d-5e1924f4a00a.png"/>
+<img src="https://user-images.githubusercontent.com/106916560/208527498-54c5e287-1434-4699-bc71-342aef5ca97a.png"/>
 <p>Система авансов, при необходимости можно выдать аванс сотруднику, который в свою очередь будет вычтен из прибыли сотрудника по итогам выбранного периода. 
 </p>
