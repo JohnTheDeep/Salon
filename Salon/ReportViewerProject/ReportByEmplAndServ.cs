@@ -34,7 +34,7 @@ namespace ReportViewerProject
         {
             // TODO: This line of code loads data into the 'dataSet1.DataTable5' table. You can move, or remove it, as needed.
 
-            SqlConnection conn = new SqlConnection("Server = 94.124.78.213; Database=SalonDbTest; Integrated Security=false; User Id=sa; Password=LoveIsMSSQLDb_2022;");
+            SqlConnection conn = new SqlConnection("Dont look");
             conn.Open();
             SqlCommand comm = new SqlCommand($"UPDATE DutyT Set newCol = CONVERT(datetime2, DutyDate, 103)", conn) ;
             comm.ExecuteNonQuery();
