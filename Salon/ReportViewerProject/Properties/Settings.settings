@@ -8,7 +8,7 @@
   &lt;ConnectionString&gt;Data Source=94.124.78.213;Initial Catalog=SalonDbTest;Persist Security Info=True;User ID=sa;Password=LoveIsMSSQLDb_2022&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=94.124.78.213;Initial Catalog=SalonDbTest;Persist Security Info=True;User ID=sa;Password=LoveIsMSSQLDb_2022</Value>
+     
     </Setting>
   </Settings>
 </SettingsFile>
