@@ -26,7 +26,7 @@ namespace ReportViewerProject
         private void ReportRanks_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.DataTable2". При необходимости она может быть перемещена или удалена.
-            SqlConnection conn = new SqlConnection("Server = 94.124.78.213; Database=SalonDbTest; Integrated Security=false; User Id=sa; Password=LoveIsMSSQLDb_2022;");
+            SqlConnection conn = new SqlConnection("");
             conn.Open();
             SqlDataAdapter sql = new SqlDataAdapter("SELECT " +
                 "STAT.BaseBid,STAT.VirtualAdminBid,\r\n\t" +
