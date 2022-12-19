@@ -1,5 +1,3 @@
-# Salon
-Repository of CRM-system for beauti-salon
 <h1>CRM-Система для учета деятельности салона красоты</h1>
 <p><strong>Tech stack:</strong> .NET CORE, WPF, WinForms, MsSql, Entity Framework Core, RDLC.</p>
   
