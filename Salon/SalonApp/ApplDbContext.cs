@@ -37,8 +37,7 @@ namespace Salon
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server = DESKTOP-V2DHIP8\\DEV; Database=SalonDbTest; Trusted_Connection=true;");
-            optionsBuilder.UseSqlServer("Server = 94.124.78.213; Database=SalonDbTest; Integrated Security=false; User Id=sa; Password=LoveIsMSSQLDb_2022;");
+            optionsBuilder.UseSqlServer("What u wanna find there?");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
