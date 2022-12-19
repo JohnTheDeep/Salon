@@ -1,0 +1,45 @@
+﻿<Window x:Class="Salon.View.Admin_panel.AdminPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salon.View.Admin_panel"
+        mc:Ignorable="d"
+        Title="AdminPanel" Height="450" Width="800" Visibility="{Binding Path=Visible}">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Grid.Column="0">
+            <TabItem Header="Салоны">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid SelectedItem="{Binding Path=SelectedSalon}" AutoGenerateColumns="False" ItemsSource="{Binding Path=Salons}" Grid.Row="0" Grid.Column="0" Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=SalonName}" Header="Наименование"/>
+                            <DataGridTextColumn Binding="{Binding Path=Director}" Header="Директор"/>
+                            <DataGridTextColumn Binding="{Binding Path=SalonEmployees.Count}" Header="Количество сотрудников"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="Gray" BorderThickness="0.5">
+                        <StackPanel>
+                            <Button Command="{Binding Path= OpenAddSalonWindowCommand}" Content="Добавить Салон" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                            <Button Command="{Binding Path= EditSalonCommand}" Content="Редактировать Салон" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                            <Button Command="{Binding Path= DeleteSalonCommand}" Content="Удалить Салон" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                            <Button Command="{Binding Path= OpenSalonViewWindowCommand}" Content="Подробнее" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5,25,5,5"/>
+
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Window>

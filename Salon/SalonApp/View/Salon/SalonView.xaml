@@ -1,0 +1,43 @@
+﻿<Window x:Class="SalonApp.View.Salon.SalonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.Salon"
+        mc:Ignorable="d"
+        Title="SalonView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <TextBlock  Text="Салон: " FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="{Binding Path=SelectedSalon.SalonName}" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        </StackPanel>
+        <Grid Margin="5" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid SelectedItem="{Binding Path=SelectedUser}" AutoGenerateColumns="False" ItemsSource="{Binding Path=Users}" Grid.Row="0" Grid.Column="0" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=NickName}" Header="Логин"/>
+                    <DataGridTextColumn Binding="{Binding Path=UserEmployee.FullName}" Header="ФИО"/>
+                    <DataGridTextColumn Binding="{Binding Path=UserType}" Header="Тип"/>
+                    <DataGridTextColumn Binding="{Binding Path=Password}" Header="Пароль"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="Gray" BorderThickness="0.5">
+                <StackPanel>
+                    <Button Command="{Binding Path=OpenAddUserWindowCommand}" Content="Добавить пользователя" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                    <Button Command="{Binding Path=OpenEditUserWindowCommand}" Content="Редактировать пользователя" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                    <Button Command="{Binding Path=DeleteUserCommand}" Content="Удалить пользователя" FontSize="15" Height="25" VerticalAlignment="Top" Margin="5"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

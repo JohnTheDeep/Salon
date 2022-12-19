@@ -1,0 +1,24 @@
+﻿<Window x:Class="Salon.View.Salary.SalaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salon.View.Salary"
+        mc:Ignorable="d"
+        Title="SalaryWindow" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Отчет о зарплате" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25"/>
+        <DataGrid Grid.Row="1" Margin="5">
+            
+        </DataGrid>
+        <Button Width="120" HorizontalAlignment="Right" Margin="5" Grid.Row="2" Content="Экспорт в Excel"/>
+    </Grid>
+</Window>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\ActiveEmployees\ActiveEmployeesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddEmployee\AddEmployeeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddJournal\AddJournalWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddRank\AddRankWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddSalon\AddSalonWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddService\AddServiceService.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddService\AddServiceWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddUser\AddUserWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Duty\DutyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditAdmin\EditAdminWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditEmployee\EditEmployeeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditRank\EditRankWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditSalon\EditSalonWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditService\EditServiceWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditUser\EditUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SalonServicesView\SalonServicesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Salon\SalonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Settings\AddEnrollment\AddEnrollmentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Settings\SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UserControls\CheckBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\ServiceBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ActiveEmployees\ActiveEmployeesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddEmployee\AddEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddJournal\AddJournalWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddRank\AddRankWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddSalon\AddSalonWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddService\AddServiceService.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddService\AddServiceWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddUser\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPanel\AdminPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Authorization\Authorization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Details\DetailsPlus.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Details\DetailsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Duty\DutyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditAdmin\EditAdminWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditEmployee\EditEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditRank\EditRankWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditSalon\EditSalonWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditService\EditServiceWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditUser\EditUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Main\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Salary\SalaryWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SalonServicesView\SalonServicesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Salon\SalonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Settings\AddEnrollment\AddEnrollmentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Settings\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
