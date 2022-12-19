@@ -25,7 +25,7 @@ namespace ReportViewerProject
         
         private void AdminSalarReport_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Server = 94.124.78.213; Database=SalonDbTest; Integrated Security=false; User Id=sa; Password=LoveIsMSSQLDb_2022;");
+            SqlConnection conn = new SqlConnection("");
             conn.Open();
             SqlCommand comm = new SqlCommand($"UPDATE DutyT Set newCol = CONVERT(datetime2, DutyDate, 103)", conn);
             comm.ExecuteNonQuery();
