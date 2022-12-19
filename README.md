@@ -1,7 +1,9 @@
 # Salon
 Repository of CRM-system for beauti-salon
 <h1>CRM-Система для учета деятельности салона красоты</h1>
-Для краткости показана лишь малая часть функционала.
+<p><strong>Tech stack:</strong> .NET CORE, WPF, WinForms, MsSql, Entity Framework Core, RDLC.</p>
+  
+Для краткости показана малая часть функционала.
 <h4>Главный функционал приложения:</h4>
 
 - Учет кадров(администраторы,мастера) и их детальная настройка.
