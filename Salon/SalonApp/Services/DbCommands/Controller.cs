@@ -500,7 +500,7 @@ namespace SalonApp.Services.DbCommands
         {
             try
             {
-                Server server = new Server(new ServerConnection("94.124.78.213", "sa", "LoveIsMSSQLDb_2022"));
+                Server server = new Server(new ServerConnection());
                 Backup dbBack = new Backup() {BackupSetName = Action, Action = BackupActionType.Database, Database = "SalonDbTest" };
                 dbBack.Devices.AddDevice(@$"/var/opt/mssql/data/SalonDbTest.bak", DeviceType.File);
                 dbBack.Initialize = init;
