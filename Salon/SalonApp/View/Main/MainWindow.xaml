@@ -1,0 +1,1134 @@
+﻿<Window xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" xmlns:fa="http://schemas.fontawesome.io/icons/" x:Class="Salon.View.MainWindow.MainWindow"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        Title="Главное окно" Height="733" Width="1500" xmlns:ui="http://schemas.modernwpf.com/2019">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TabItem}">
+
+
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#f2f2f2"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Bahnscrift"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="TabItem">
+
+                        <Grid Name="Panel">
+                            <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    ContentSource="Header"
+                                    Margin="10,10,10,10"/>
+                        </Grid>
+                        
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Panel" Property="Background" Value="#6096BA" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="#274C77" />
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="0 0.5 0 0 "/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="#274C77" />
+                                <Setter TargetName="Panel" Property="TextBlock.Foreground" Value="Gray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <Brush>Transparent</Brush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TabControl}"/>
+        <ResourceDictionary x:Key="sys" Source="Dictionary1.xaml"/>
+        <Style x:Name="StandartListView" TargetType="{x:Type ListViewItem}">
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <Brush>SkyBlue</Brush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness">
+                <Setter.Value>
+                    <Thickness>0.5</Thickness>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin">
+                <Setter.Value>
+                    <Thickness>2</Thickness>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width">
+                <Setter.Value>
+                    <System:Double>300</System:Double>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Height">
+                <Setter.Value>
+                    <System:Double>200</System:Double>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalContentAlignment">
+                <Setter.Value>
+                    <HorizontalAlignment>Center</HorizontalAlignment>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="VerticalContentAlignment">
+                <Setter.Value>
+                    <VerticalAlignment>Center</VerticalAlignment>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0">
+        <TabControl   BorderThickness="0"  Background="#E7ECEF" Padding="0" TabStripPlacement="Left" Margin="0">
+
+            <TabControl.Resources>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Background" Value="#274C77"/>
+                </Style>
+                <Style TargetType="{x:Type TabPanel}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </TabControl.Resources>
+
+            <TabItem Foreground="#F2F2F2" IsEnabled="False" Height="auto" >
+                <TabItem.Header>
+                    <StackPanel Margin="25,0,0,0">
+                        <Image Margin="5" Width="100" Height="100" Source="/src/kindpng_2504166.png"/>
+                        <StackPanel Margin="2">
+                            <TextBlock  Margin="5,2,5,5" TextAlignment="Center" Text="{Binding Path=SelectedSalon.SalonName}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem   IsSelected="True" Margin="0,0,0,0">
+                <TabItem.Header >
+                    <StackPanel Orientation="Horizontal">
+                        <svgc:SvgViewbox  Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/home.svg"/>
+                        <TextBlock TextBlock.FontFamily="bahnschrift"  Margin="10,0,0,0" VerticalAlignment="Bottom" Text="ГЛАВНАЯ" Height="20"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid  Background="#E7ECEF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+
+                    <DockPanel    Grid.Row="3" Width="auto" VerticalAlignment="Center"  HorizontalAlignment="Center" >
+                        <Border  UseLayoutRounding ="True"  Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel  Margin="5" Width="100">
+                                <Border BorderThickness="0,0,0,0.5" BorderBrush="Black">
+                                    <TextBlock TextBlock.FontFamily="bahnschrift"  FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Наличка за день"/>
+                                </Border>
+                                <StackPanel  Orientation="Horizontal"  Height="50">
+                                    <TextBlock TextBlock.FontFamily="bahnschrift"  Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Duty.CashPerDay}" HorizontalAlignment="Stretch" Height="40"/>
+                                    <TextBlock TextBlock.FontFamily="bahnschrift" Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border UseLayoutRounding ="True"  Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel Margin="5" Width="100">
+                                <Border BorderThickness="0,0,0,0.5" BorderBrush="Black">
+                                    <TextBlock TextBlock.FontFamily="bahnschrift" FontSize="15"  TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Безнал за день"/>
+                                </Border>
+                                <StackPanel Height="50">
+                                    <StackPanel TextBlock.FontFamily="bahnschrift" Orientation="Horizontal"  Height="50">
+                                        <TextBlock  Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Duty.NonCashPerDay}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock  FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left"  Margin="5" Text="Прибыль за день"/>
+                                </Border>
+                                <StackPanel Visibility="{Binding Path=IsVis}" Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Duty.Income}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15"  TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="4" Text="Сертификаты за день"/>
+                                </Border>
+                                <StackPanel Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock  Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Duty.TotalSertificates}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15"  TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="4" Text="Переводы за день"/>
+                                </Border>
+                                <StackPanel Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock  Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Duty.TransfersPerDay}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="20,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Наличка в кассе"/>
+                                </Border>
+                                <StackPanel Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountCash}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" HorizontalAlignment="Center" Width="110" VerticalAlignment="Center" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Забрал директор"/>
+                                </Border>
+                                <StackPanel Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock   Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding Path=Duty.Taken}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" Width="110" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Итого   безнал"/>
+                                </Border>
+                                <StackPanel Margin="0,0,0,0" VerticalAlignment="Bottom" Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Visibility="{Binding Path=IsVis}" Foreground="Black"  FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountNonCash}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="White" CornerRadius="5" Margin="3,3,10,3" Width="110" >
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel TextBlock.FontFamily="bahnschrift" Margin="5" Width="100">
+                                <Border Height="47.5" BorderThickness="0,0,0,0.75" BorderBrush="Black">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Left" Margin="5" Text="Итого переводов"/>
+                                </Border>
+                                <StackPanel Visibility="{Binding Path=IsVis}" Height="50">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock  Foreground="Black"  FontSize="18" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountTransfers}" HorizontalAlignment="Stretch" Height="40"/>
+                                        <TextBlock Foreground="Black" FontSize="18" TextAlignment="Center" Margin="5" Text="zł" HorizontalAlignment="Right" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <Border>
+
+                        </Border>
+                    </DockPanel>
+
+                    <Grid MinWidth="550" Margin="10,10,10,0" Grid.Row="0" Background="#E7ECEF">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200*"/>
+                            <ColumnDefinition Width="40*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <Grid Background="White" Margin="10,10,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Background="White" CornerRadius="5">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                                </Border.Effect>
+                                <ScrollViewer Margin="10" Background="#E7ECEF">
+                                    <ItemsControl Background="#E7ECEF"  ItemsSource="{Binding Path=ViewList}"  HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="0" x:Name="ServiceListView"  Height="auto" Width="auto" Margin="10">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+
+                                                <WrapPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </Border>
+
+
+
+                        </Grid>
+                        <StackPanel TextBlock.FontFamily="bahnschrift"  Grid.Column="2" Orientation="Vertical">
+                            <Button Foreground="Black" VerticalAlignment="Top" Content="{Binding Path=DutyStat}" Grid.Column="1" Height="40" Width="auto" Margin="10,10,10,5">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="{Binding Path=DutyStatusColor}"/>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button TextBlock.FontFamily="bahnschrift" Foreground="Black"  VerticalAlignment="Top" Grid.Column="1" Height="50" Width="auto" Margin="10,5,10,10">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="BorderBrush" Value="Black"/>
+                                        <Setter Property="BorderThickness" Value="0.5"/>
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border CornerRadius="5" Background="White" >
+
+                                                        <StackPanel  Margin="5" >
+                                                            <TextBlock HorizontalAlignment="Center" Text="Текущий пользователь"/>
+                                                            <TextBlock HorizontalAlignment="Center" Margin="2" Foreground="Black" Text="{Binding LoggedUser.NickName}" />
+                                                        </StackPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </StackPanel>
+                        <Border MinWidth="60"  Margin="10,125,10,0" Background="#E7ECEF" Grid.Column="1">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="7" ShadowDepth="0.5"/>
+                            </Border.Effect>
+                            <StackPanel MinWidth="60"  Margin="2" Background="White" Grid.Column="1">
+
+                                <StackPanel>
+                                    <!--<Grid  Background="#E7ECEF" Margin="5" Height="107">
+                                    <TextBlock Foreground="Black" Margin="5,5,5,100" Text="Админ:" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+                                    <TextBlock Foreground="Black" Margin="5,35,5,75" Text="{Binding LoggedUser.NickName}" FontSize="15" TextAlignment="Center" LineHeight="30"/>
+                                    <TextBlock Foreground="Black" FontSize="14" Margin="5,0,5,5" Text="Виртуальный админ" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <DockPanel Margin="0,50,0,0">
+                                        <CheckBox  IsChecked="{Binding YesCheck}" IsEnabled="False" Margin="20,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBlock FontSize="14" Text="Да"/>
+                                        </CheckBox>
+                                        <CheckBox  IsChecked="{Binding NoCheck}" IsEnabled="False" Margin="5,5,20,5" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <TextBlock  FontSize="14" Text="Нет"/>
+                                        </CheckBox>
+                                    </DockPanel>
+
+
+                                </Grid>-->
+                                    <Button TextBlock.FontFamily="bahnschrift"  Command="{Binding OpenServiceWindowCommand}" VerticalAlignment="Bottom" Content="Услуги" Grid.Column="1" Height="30" Width="auto" Margin="5,2,5,2"/>
+                                    <Button TextBlock.FontFamily="bahnschrift"  Command="{Binding OpenActivateServiceWindowCommand}" VerticalAlignment="Bottom" Content="Активные услуги" Grid.Column="1" Height="30" Width="auto" Margin="5,2,5,2"/>
+                                    <Button TextBlock.FontFamily="bahnschrift" Command="{Binding OpenActivityEmployeesWindowCommand}" VerticalAlignment="Bottom" Content="Мастера" Grid.Column="1" Height="30" Width="auto" Margin="5,2,5,2"/>
+                                    <Button TextBlock.FontFamily="bahnschrift" Command="{Binding OpenDutyWindowCommand}" VerticalAlignment="Bottom" Content="Смены" Grid.Column="1" Height="30" Width="auto" Margin="5,2,5,2" />
+                                    <Button TextBlock.FontFamily="bahnschrift" Command="{Binding OpenAdditCommand}" VerticalAlignment="Bottom" Content="Доп продажа" Grid.Column="1" Height="30" Width="auto" Margin="5,2,5,2" />
+
+
+                                    <Button TextBlock.FontFamily="bahnschrift" Command="{Binding UpdateC}" VerticalAlignment="Bottom" Content="Обновить" Grid.Column="1" Height="30" Width="auto" Margin="5,10,5,5"/>
+                                    <Button TextBlock.FontFamily="bahnschrift" Command="{Binding Path=IncommingCommand}" Margin="5" Height="30" Content="Доход"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2"  Margin="2" VerticalAlignment="Stretch" >
+                                    <TextBlock TextBlock.FontFamily="bahnschrift" HorizontalAlignment="Center" Margin="2" Text="Напоминание" Foreground="Black"/>
+                                    <ListView TextBlock.FontFamily="bahnschrift" VerticalAlignment="Stretch" HorizontalAlignment="Center" Background="White"  Margin="2">
+                                        <ListViewItem Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="156" Height="130">
+                                            <TextBlock  TextWrapping="Wrap" Text="{Binding Path=TodayRemind.Message}"/>
+                                        </ListViewItem>
+                                    </ListView>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <svgc:SvgViewbox Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/check.svg"/>
+                        <TextBlock TextBlock.FontFamily="bahnschrift" Margin="10,0,0,0" VerticalAlignment="Bottom" Text="СВЕРКА"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <TabControl BorderThickness="0" Padding="0" TabStripPlacement="Left" Margin="0">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" Value="#274C77"/>
+                            </Style>
+                            <Style TargetType="{x:Type TabPanel}">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+
+                            </Style>
+                        </TabControl.Resources>
+
+                        <TabItem Background="White">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontFamily="Bahnscrift" FontWeight="SemiBold" VerticalAlignment="Bottom" Text="Сверка услуг"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            
+                            <Grid Margin="0" TextBlock.FontFamily="bahnschrift" Background="#E7ECEF">
+                                <Grid Margin="10,10,10,10" Background="#E7ECEF">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="220"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" VerticalAlignment="Center"  Margin="10,5,5,5" FontSize="22" Text="Админ:"/>
+                                            <TextBlock Foreground="Black" Margin="10,5,5,5" VerticalAlignment="Center"  FontSize="22" Text="{Binding ServiceDuty.User.Employee.FullName}"/>
+                                            <TextBlock Margin="2,5,5,5" VerticalAlignment="Center" Text=";" Foreground="Black" FontSize="22"/>
+
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Margin="10,10,10,10" Grid.Row="1" CornerRadius="5" Grid.Column="0" Background="White" Grid.RowSpan="2">
+
+                                        <ListView BorderBrush="Gray" BorderThickness="0.75" Background="#E7ECEF" ItemsSource="{Binding ViewList2}"   ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="0"  x:Name="CheckList" Margin="9.6">
+
+                                            <ListView.ItemsPanel >
+                                                <ItemsPanelTemplate>
+
+                                                    <WrapPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle >
+                                                <Style TargetType="{x:Type ListViewItem}">
+                                                    <Setter Property="BorderBrush">
+                                                        <Setter.Value>
+                                                            <Brush>SkyBlue</Brush>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="BorderThickness">
+                                                        <Setter.Value>
+                                                            <Thickness>0.5</Thickness>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="Margin">
+                                                        <Setter.Value>
+                                                            <Thickness>2</Thickness>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="Width">
+                                                        <Setter.Value>
+                                                            <System:Double>800</System:Double>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="Height">
+                                                        <Setter.Value>
+                                                            <System:Double>350</System:Double>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="HorizontalContentAlignment">
+                                                        <Setter.Value>
+                                                            <HorizontalAlignment>Center</HorizontalAlignment>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="VerticalContentAlignment">
+                                                        <Setter.Value>
+                                                            <VerticalAlignment>Center</VerticalAlignment>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+                                    </Border>
+
+                                    <Border CornerRadius="5" Grid.Row="1" Background="White" Grid.Column="1"  Margin="5,10,5,10">
+                                        <StackPanel Margin="5">
+                                            <Calendar x:Name="Calendar1"  SelectedDate="{Binding SelectedDate, Mode=TwoWay}" Width="auto" Margin="5">
+                                            </Calendar>
+
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontFamily="Bahnscrift" FontWeight="SemiBold" VerticalAlignment="Bottom" Text="Сверка допов"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid TextBlock.FontFamily="Bahnschrift" Background="#E7ECEF">
+                                <Grid Margin="10,10,10,10" Background="#E7ECEF">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="220"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"/>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Border CornerRadius="5" Grid.Row="1" Background="White" Grid.Column="1"  Margin="5,10,5,10">
+                                        <StackPanel Margin="5" Background="White">
+                                            <Calendar x:Name="Calendar2"  SelectedDate="{Binding SelectedDate2}" Width="auto" Margin="5">
+                                            </Calendar>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" VerticalAlignment="Center"  Margin="10,5,5,5" FontSize="22" Text="Админ:"/>
+                                            <TextBlock Foreground="Black" Margin="10,5,5,5" VerticalAlignment="Center"  FontSize="22" Text="{Binding Admin.FullName}"/>
+                                            <TextBlock Margin="2,5,5,5" VerticalAlignment="Center" Text=";" Foreground="Black" FontSize="22"/>
+
+                                        </StackPanel>
+                                    </Border>
+                                    <Border CornerRadius="5" Grid.Row="1"  Background="White"  Margin="10,10,10,110">
+                                        <DataGrid Margin="10" VerticalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True"  ItemsSource="{Binding ListOfAdditional}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Width="*" Header="Клиент" Binding="{Binding ClientName}"/>
+                                                <DataGridTextColumn Width="*" Header="Наличка" Binding="{Binding Cash}"/>
+                                                <DataGridTextColumn Width="*" Header="Безнал" Binding="{Binding NonCash}"/>
+                                                <DataGridTextColumn Width="*" Header="Сертификат" Binding="{Binding Sertificate}"/>
+                                                <DataGridTextColumn Width="*" Header="Наличка(скидка)" Binding="{Binding DiscountCash}"/>
+                                                <DataGridTextColumn Width="*" Header="Безнал(скидка)" Binding="{Binding DiscountNonCash}"/>
+                                                <DataGridTextColumn Width="*" Header="Фиктив" Binding="{Binding Fictive}"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Border>
+
+                                    <Border  CornerRadius="5" Grid.Row="1"  Margin="2" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220" BorderThickness="2" VerticalAlignment="Center" >
+                                                <StackPanel Margin="5" Width="210">
+                                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="Наличка за день (допы)"/>
+                                                    <StackPanel Height="50">
+                                                        <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding TotalAdditCashPerDay}" HorizontalAlignment="Stretch" Height="40"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220" BorderThickness="2" VerticalAlignment="Center" >
+                                                <StackPanel Margin="5" Width="210">
+                                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="Безнал за день (допы)"/>
+                                                    <StackPanel Height="50">
+                                                        <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding TotalAdditNonCashPerDay}" HorizontalAlignment="Stretch" Height="40"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220"  BorderThickness="2" VerticalAlignment="Center" >
+                                                <StackPanel Margin="5" Width="210">
+                                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="ЗП админу за допы"/>
+                                                    <StackPanel Height="50">
+                                                        <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding AdminTotalAddit}" HorizontalAlignment="Stretch" Height="40"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Visibility="Collapsed">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Bottom" Text="Сверка смен"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Background="White">
+                                <Grid Background="White" Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="220"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="80"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Margin="10" Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center" Text="Смена:" Foreground="Black" FontSize="25"/>
+                                        <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="Смена" Foreground="Black" FontSize="25"/>
+                                    </StackPanel>
+                                    <Grid Background="White" Grid.Row="1">
+                                        <DataGrid Margin="10">
+
+                                        </DataGrid>
+                                    </Grid>
+                                    <Border CornerRadius="5" Grid.Row="1" Background="#E7ECEF" Grid.Column="1"  Margin="10">
+                                        <StackPanel Margin="5,5,5,2" Background="#E7ECEF">
+                                            <Calendar x:Name="Calendar3" Width="auto" Margin="5">
+                                            </Calendar>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontFamily="Bahnscrift" FontWeight="SemiBold" VerticalAlignment="Bottom" Text="Сверка зарплат"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid   Background="#E7ECEF">
+
+                                <Grid TextBlock.FontFamily="bahnschrift" Background="#E7ECEF" Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="220"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock  Margin="10,5,5,5" VerticalAlignment="Center" Text="Смена:" Foreground="Black" FontSize="22"/>
+                                            <TextBlock Margin="10,5,5,5" VerticalAlignment="Center" Text="{Binding Path=DateStat}" Foreground="Black" FontSize="22"/>
+                                            <TextBlock Margin="2,5,5,5" VerticalAlignment="Center" Text=";" Foreground="Black" FontSize="22"/>
+
+                                            <TextBlock Margin="10,5,5,5" VerticalAlignment="Center" Text="Админ:" Foreground="Black" FontSize="22"/>
+                                            <TextBlock Margin="10,5,5,5" VerticalAlignment="Center" Text="{Binding Path=StatDuty.User.Employee.FullName}" Foreground="Black" FontSize="22"/>
+                                            <TextBlock Margin="2,5,5,5" VerticalAlignment="Center" Text=";" Foreground="Black" FontSize="22"/>
+
+                                        </StackPanel>
+                                    </Border>
+                                    <Border CornerRadius="5" Grid.Row="1" Background="White" Grid.Column="1"  Margin="5,10,5,10">
+                                        <StackPanel Margin="5,5,5,5" Background="White">
+                                            <Calendar SelectedDate="{Binding Path=StatisticSelectedDate}" x:Name="Calendar4" Width="auto" Margin="5">
+                                            </Calendar>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Background="White" CornerRadius="5" Grid.Row="1" Grid.Column="0" Margin="10">
+                                        <DataGrid SelectedItem="{Binding Path=SalaryEmployee}" ItemsSource="{Binding Path=StatisticList}" Grid.Row="1" Grid.Column="0" Margin="10">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="PreviewMouseDoubleClick">
+                                                    <b:InvokeCommandAction Command="{Binding SalaryDoubleClick}"/>
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Binding="{Binding Path=Stat.Employee.FullName}" Width="*" Header="Сотрудник"/>
+                                                <DataGridCheckBoxColumn Binding="{Binding Path=Stat.IsAdmin}" Width="*" Header="Админ?"/>
+                                                <DataGridTextColumn Binding="{Binding Path=Stat.Total}" Width="*" Header="Начисления"></DataGridTextColumn>
+                                                <DataGridTextColumn Binding="{Binding Path=Stat.BaseBid}" Width="*" Header="Базовая ставка"/>
+                                                <DataGridTextColumn Binding="{Binding Path=Stat.VirtualAdminBid}" Width="*" Header="Ставка виртуального админа"/>
+                                                <DataGridTextColumn Binding="{Binding Path=Total}" Width="*" Header="Итог дня"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+
+            </TabItem>
+
+
+            <TabItem IsEnabled="{Binding Path=IsEnabledEmpl}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <svgc:SvgViewbox Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/settings.svg"/>
+                        <TextBlock TextBlock.FontFamily="bahnschrift" Margin="10,0,0,0" VerticalAlignment="Bottom" Text="НАСТРОЙКА"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="#E7ECEF">
+                    <Grid TextBlock.FontFamily="bahnschrift" Background="#E7ECEF" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition />
+                            <RowDefinition Height="45"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400*"/>
+                            <ColumnDefinition Width="225"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+                            <StackPanel  Orientation="Horizontal">
+                                <TextBlock Foreground="Black" Grid.Row="1" Text="Работники" Margin="10" Height="auto" FontSize="15"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="10" Grid.Row="1" Background="White" CornerRadius="5">
+                            <DataGrid SelectedItem="{Binding selectedEmployee}" AutoGenerateColumns="False" ItemsSource="{Binding Employees}" Grid.Row="1" Margin="10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="*" Binding="{Binding FullName}" Header="ФИО"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Rank.RankName}"  Header="Должность"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Ppackage}" Header="% с пакета"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Paddit}" Header="% с допа"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Pfictive}" Header="% с фиктива"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Phandjob}" Header="% с ручной работы"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding EntryTreshold}" Header="порог минимальной зп"/>
+                                    <DataGridTextColumn Width="*" Binding="{Binding Bid}" Header="ставка в день если зп ниже порога"/>
+                                </DataGrid.Columns>
+                                <DataGrid.RowDetailsTemplate>
+                                    <DataTemplate>
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Enrollments}">
+                                            <DataGrid.Columns >
+                                                <DataGridTextColumn Width="250" Header="Услуга" Binding="{Binding Service.ServiceName}"/>
+                                                <DataGridTextColumn Width="250" Header="Процент" Binding="{Binding Percent}"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </DataTemplate>
+                                </DataGrid.RowDetailsTemplate>
+                            </DataGrid>
+
+                        </Border>
+                        <Border Background="White" Grid.Row="2" CornerRadius="5" Margin="10,5,10,5">
+                            <StackPanel  Orientation="Horizontal">
+                                <TextBlock Foreground="Black" Grid.Row="2" Text="Администраторы" Margin="10" Height="auto" FontSize="15"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="10" Grid.Row="3" CornerRadius="5" Background="White">
+                            <DataGrid  SelectedItem="{Binding SelectedUser}" Grid.Row="3" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Admins}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="*" Header="Админ" Binding="{Binding NickName}"/>
+                                    <DataGridTextColumn Width="*" Header="Тип учетной записи" Binding="{Binding UserType}"/>
+                                    <DataGridTextColumn Width="*" Header="ФИО" Binding="{Binding Employee.FullName}"/>
+                                    <DataGridTextColumn Width="*" Header="% с пакета" Binding="{Binding Ppackage}"/>
+                                    <DataGridTextColumn Width="*" Header="% с допа" Binding="{Binding Paddit}"/>
+                                    <DataGridTextColumn Width="*" Header="за вирт.админа" Binding="{Binding VirtualAdminBid}"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </Border>
+ 
+                        <Button Grid.Row="0" Command="{Binding OpenSettingsWindowCommand}" VerticalAlignment="Top"  HorizontalAlignment="Right" Grid.Column="1" FontSize="16" Margin="5,5,10,5">
+                            <StackPanel>
+                                <svgc:SvgViewbox Width="50" Height="25" Source="/src/global-settings-svgrepo-com.svg" />
+                            </StackPanel>
+                        </Button>
+
+                        <Border CornerRadius="5" Background="White" Margin="0,10,10,10"  Grid.Row="1" Grid.Column="1" BorderBrush="Gray">
+                            <StackPanel>
+                                <Button Command="{Binding OpenAddEmployeeWindow}" FontSize="16" Margin="5" Content="Добавить"/>
+                                <Button Command="{Binding OpenEditEmployeeWindow}" FontSize="16" Margin="5" Content="Редактировать"/>
+                                <Button Command="{Binding DeleteEmployees}" FontSize="16" Margin="5" Content="Удалить"/>
+
+                            </StackPanel>
+                        </Border>
+                        <Border CornerRadius="5" Background="White" Margin="0,10,10,10"  Grid.Row="3" Grid.Column="1">
+                            <StackPanel>
+                                <Button  Command="{Binding OpenEditAdminCommand}" FontSize="16" Margin="5" Content="Редактировать"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Background="#E7ECEF" BorderBrush="Transparent" BorderThickness="0" IsEnabled="{Binding Path=IsEnabledEmpl}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <svgc:SvgViewbox Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/salary.svg"/>
+                        <TextBlock TextBlock.FontFamily="bahnschrift" Margin="10,0,0,0" VerticalAlignment="Bottom" Text="ЗАРПЛАТА"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="850*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl BorderThickness="0" Background="#E7ECEF" TabStripPlacement="Left" Grid.Column="0" Margin="70,-1,-70,1">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" Value="#274C77"/>
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem TextBlock.FontFamily="bahnschrift" Header="Зарплата">
+                            <Grid Background="#E7ECEF" Margin="10">
+                                <Border  VerticalAlignment="Top" Height="420" HorizontalAlignment="Left" Margin="25" Grid.Row="1" Width="260" Background="White" CornerRadius="5">
+                                    <StackPanel  Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" Text="Персонализированный отчет"/>
+                                        <StackPanel Width="250">
+                                            <TextBlock  Foreground="Black"  TextAlignment="Center" Text="Работник" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black"  SelectedItem="{Binding SelectedReportEmployee}" ItemsSource="{Binding ReportEmployees}" DisplayMemberPath="FullName" HorizontalAlignment="Stretch" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Процедура" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black" SelectedItem="{Binding SelectedReportService}" ItemsSource="{Binding ReportServices}" DisplayMemberPath="ServiceType" HorizontalAlignment="Stretch" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker Foreground="Black"  SelectedDate="{Binding SelectedReportESDateIn}" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportESDateOut}" Margin="5"/>
+                                            <CheckBox Margin="5" Content="Детализированный?" IsChecked="{Binding Path=Detalized}"/>
+                                            <Button Command="{Binding ShowReportEM}" Margin="5" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                                <Border  VerticalAlignment="Top" Height="420" HorizontalAlignment="Left" Margin="300,25,25,25" Grid.Row="1" Width="260" Background="White" CornerRadius="5">
+                                    <StackPanel  Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Персонализированный отчет (Админы)" TextAlignment="Center"/>
+                                        <StackPanel Width="250">
+                                            <TextBlock  Foreground="Black"  TextAlignment="Center" Text="Работник" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black"  SelectedItem="{Binding SelectedReportAdmin}" ItemsSource="{Binding ReportAdmins}" DisplayMemberPath="FullName" HorizontalAlignment="Stretch" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker Foreground="Black"  SelectedDate="{Binding SelectedDateInAdminReport}" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedDateOutAdminReport}" Margin="5"/>
+                                            <Button  Command="{Binding ShowReportAdm}" Margin="5,49,5,5" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                                <Border Visibility="Hidden" VerticalAlignment="Top" Height="400" HorizontalAlignment="Left" Margin="300,25,25,25" Grid.Row="1" Width="260" Background="#E7ECEF" CornerRadius="5">
+                                    <StackPanel  Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" Text="Персонализированный отчет"/>
+                                        <StackPanel Width="250">
+                                            <TextBlock  Foreground="Black"  TextAlignment="Center" Text="Админ" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black"  SelectedItem="{Binding SelectedReportEmployee}" ItemsSource="{Binding ReportEmployees}" DisplayMemberPath="FullName" HorizontalAlignment="Stretch" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Процедура" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black" SelectedItem="{Binding SelectedReportService}" ItemsSource="{Binding ReportServices}" DisplayMemberPath="ServiceName" HorizontalAlignment="Stretch" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker Foreground="Black"  SelectedDate="{Binding SelectedReportESDateIn}" Margin="5"/>
+                                            <TextBlock Foreground="Black"  TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportESDateOut}" Margin="5"/>
+                                            <Button Command="{Binding ShowReportEM}" Margin="5" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                        <TabItem  TextBlock.FontFamily="bahnschrift" Header="Отчеты">
+                            <StackPanel Background="#E7ECEF" Margin="10" Orientation="Horizontal">
+
+                                <Border VerticalAlignment="Top" Margin="25,25,15,25" HorizontalAlignment="Left" Height="420" Width="260" Background="White" CornerRadius="5">
+                                    <StackPanel Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" Text="Отчет по процедурам"/>
+                                        <StackPanel Width="250" VerticalAlignment="Stretch">
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Процедура" FontSize="17" Margin="5"/>
+                                            <ComboBox Foreground="Black" SelectedItem="{Binding SelectedReportSService}" HorizontalAlignment="Stretch" DisplayMemberPath="ServiceName" ItemsSource="{Binding ReportServ2}" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportSDateIn}" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportSDateOut}" Margin="5"/>
+
+                                            <Button  Command="{Binding ShowReportS}" Margin="5,65,5,5" VerticalAlignment="Bottom" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Height="420" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,25,25,25" Grid.Row="1" Width="260" Background="White" CornerRadius="5">
+                                    <StackPanel Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" Text="Отчет по должностям"/>
+                                        <StackPanel Width="250" Height="380">
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Должность" FontSize="17" Margin="5"/>
+                                            <ComboBox  SelectedItem="{Binding SelectedReportRank}" HorizontalAlignment="Stretch" ItemsSource="{Binding ReportRanks}" DisplayMemberPath="RankName" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportRankDateIn}" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding SelectedReportRankDateOut}" Margin="5"/>
+
+                                            <Button Command="{Binding ShowReportRanks}" Margin="5,65,5,5" VerticalAlignment="Bottom" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                                <Border Height="420" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,25,25,25" Grid.Row="1" Width="260" Background="White" CornerRadius="5">
+                                    <StackPanel Margin="5">
+                                        <TextBlock Foreground="Black" FontSize="17" HorizontalAlignment="Center" Text="Общий отчет"/>
+                                        <StackPanel Width="250" Height="380">
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="Период" FontSize="17" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="C" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding MainReportDateIn}" Margin="5"/>
+                                            <TextBlock Foreground="Black" TextAlignment="Center" Text="По" FontSize="17" Margin="5"/>
+                                            <DatePicker SelectedDate="{Binding MainReportDateOut}" Margin="5"/>
+
+                                            <Button Command="{Binding ShowMainReport}" Margin="5,129,5,5" VerticalAlignment="Bottom" Content="Отчет" FontSize="17"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem TextBlock.FontFamily="bahnschrift" IsEnabled="{Binding Path=IsEnabledEmpl}" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <TabItem.Header>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <svgc:SvgViewbox  Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/pig.svg"/>
+                        <TextBlock Margin="10,0,0,0" VerticalAlignment="Bottom" Text="КАССА"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="#E7ECEF" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Касса салона" FontSize="15" Foreground="Black" TextAlignment="Center"/>
+                        <DockPanel   Margin="2" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+           
+                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220"  VerticalAlignment="Center" >
+                                <StackPanel Margin="5" Width="210">
+                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="Наличка / Доход"/>
+                                    <StackPanel>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Orientation="Horizontal">
+                                            <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountCash}" HorizontalAlignment="Stretch" Height="40"/>
+                                            <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="/" HorizontalAlignment="Stretch" Height="40"/>
+                                            <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding CurrentIncomming}" HorizontalAlignment="Stretch" Height="40"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220" BorderThickness="2" VerticalAlignment="Center" >
+                                <StackPanel VerticalAlignment="Bottom" Margin="5" Width="210">
+                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="Итого безнал"/>
+                                    <StackPanel Height="50">
+                                        <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountNonCash}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="White" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="220"  BorderThickness="2" VerticalAlignment="Center">
+                                <StackPanel Margin="5" Width="210">
+                                    <TextBlock Foreground="Black" TextAlignment="Center" Margin="5" Text="Итого переводов"/>
+                                    <StackPanel Height="50">
+                                        <TextBlock Foreground="Black" FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding CurrentCashBox.amountTransfers}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Border>
+                        </DockPanel>
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button Command="{Binding Path=OpenCash}" Width="150" Margin="5" FontSize="15" Content="Забрать"/>
+                            <Button Command="{Binding Path=DeleteCash}" Width="150" Margin="5" FontSize="15" Content="Удалить"/>
+                            <Button Command="{Binding Path=IncommingCommand}" Width="150" Margin="5" FontSize="15" Content="Доход"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Border Background="White" CornerRadius="5" VerticalAlignment="Top" Height="40"  Grid.Column="0" Margin="5,10,5,10" Grid.Row="1">
+                        <Grid Background="Transparent">
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" HorizontalAlignment="Left" Width="100" Margin="5" Foreground="Black" Text="История" FontSize="17"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Text="Период" Foreground="Black" Height="25" TextAlignment="Center"  Margin="5,5,265,5"/>
+                            <DatePicker  SelectedDate="{Binding Path=CashSelectedDate}"  HorizontalAlignment="Right"   VerticalAlignment="Top" Width="250" Margin="5,5,5,5">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Control.Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <TextBox IsEnabled="False" Text="{Binding Path=SelectedDate, StringFormat='MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+
+                        </Grid>
+
+                    </Border>
+                    <Border Background="White" CornerRadius="5" Grid.Row="1" Grid.Column="0" Margin="5,60,5,5">
+                        <DataGrid Margin="10" SelectedItem="{Binding Path=SelectedCash}" ItemsSource="{Binding Path=CashBoxOperationsList}"  Grid.Row="1" Grid.Column="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="*" Header="Дата" Binding="{Binding Path=Date}"/>
+                                <DataGridTextColumn Width="*" Header="Забрано" Binding="{Binding Path=Taken}"/>
+                                <DataGridTextColumn Width="*" Header="Нал\Безнал" Binding="{Binding Path=Type}"/>
+                                <DataGridTextColumn Width="*" Header="На начало дня" Binding="{Binding Path=LessIn}"/>
+                                <DataGridTextColumn Width="*" Header="После забора" Binding="{Binding Path=Less}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                </Grid>
+            </TabItem>
+            <TabItem TextBlock.FontFamily="bahnschrift" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <svgc:SvgViewbox Margin="0,0,5,0" Width="15" Height="15"  Source="/src/icons/minus.svg"/>
+                        <TextBlock Margin="10,0,0,0" VerticalAlignment="Bottom" Text="АВАНСЫ/МИНУСЫ"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <TabControl BorderThickness="0" Background="#E7ECEF" TabStripPlacement="Left" Grid.Column="0" Grid.Row="1">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" Value="#274C77"/>
+                                <Setter Property="Margin" Value="0"/>
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem TextBlock.FontFamily="bahnschrift"  Margin="0" Header="Минусы">
+                            <Grid Margin="10" Background="#E7ECEF">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="300*"/>
+                                    <ColumnDefinition Width="200"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition/>
+
+                                </Grid.RowDefinitions>
+                                <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+                                    <Grid  Background="Transparent" >
+                                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" HorizontalAlignment="Left" Width="100" Margin="5" Foreground="Black" Text="Расходы" FontSize="17"/>
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Text="Период" Foreground="Black" Height="25" TextAlignment="Center"  Margin="5,5,265,5"/>
+                                        <DatePicker  SelectedDate="{Binding Path=MinusSelectedDate}"  HorizontalAlignment="Right"  Height="30" VerticalAlignment="Top" Width="250" Margin="5,5,5,5">
+                                            <DatePicker.Resources>
+                                                <Style TargetType="DatePickerTextBox">
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate>
+                                                                <TextBox IsEnabled="False" Text="{Binding Path=SelectedDate, StringFormat='MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </DatePicker.Resources>
+                                            <i:Interaction.Triggers>
+                                                <b:EventTrigger EventName="SelectedDateChanged">
+                                                    <b:InvokeCommandAction Command="{Binding Path=MinusDateChanged}"/>
+                                                </b:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </DatePicker>
+
+                                    </Grid>
+
+                                </Border>
+                                <Border Margin="10" Background="White" CornerRadius="5" Grid.Column="0" Grid.Row="1">
+                                    <DataGrid SelectedItem="{Binding Path=SelectedLess}" ItemsSource="{Binding Path=LessesList}" Margin="10">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding Path=Duty.DutyDate}" Width="*" Header="Дата"/>
+                                            <DataGridTextColumn Binding="{Binding Path=Name}" Width="*" Header="Наименование"/>
+                                            <DataGridTextColumn Binding="{Binding Path=Amount}" Width="*" Header="Сумма"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Border>
+                                <Border  CornerRadius="5" Grid.Row="1" Grid.Column="1" Background="White" Margin="5,10,10,10">
+                                    <StackPanel Margin="5">
+                                        <Button   Command="{Binding Path=AddLess}" Content="Добавить" Margin="2"/>
+                                        <Button  Visibility="{Binding IsVis}" Command="{Binding Path=EditLess}" Content="Редактировать" Margin="2">
+                                        </Button>
+                                    </StackPanel>
+
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                        <TabItem TextBlock.FontFamily="bahnschrift" Background="{Binding Path=Back}"  Header="Авансы">
+                            <Grid Background="#E7ECEF" Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="300*"/>
+                                    <ColumnDefinition Width="200"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+
+                                    <Grid Background="Transparent" VerticalAlignment="Top">
+                                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" HorizontalAlignment="Left" Width="100" Margin="5" Foreground="Black" Text="Авансы" FontSize="17"/>
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Text="Период" Foreground="Black" Height="25" TextAlignment="Center"  Margin="5,5,265,5"/>
+                                        <DatePicker  SelectedDate="{Binding Path=AvSelectedDate}"  HorizontalAlignment="Right"  Height="30" VerticalAlignment="Top" Width="250" Margin="5,5,5,5">
+                                            <DatePicker.Resources>
+                                                <Style TargetType="DatePickerTextBox">
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate>
+                                                                <TextBox IsEnabled="False" Text="{Binding Path=SelectedDate, StringFormat='MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </DatePicker.Resources>
+                                            <i:Interaction.Triggers>
+                                                <b:EventTrigger EventName="SelectedDateChanged">
+                                                    <b:InvokeCommandAction Command="{Binding Path=MinusDateChanged}"/>
+                                                </b:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </DatePicker>
+
+                                    </Grid>
+                                </Border>
+                                <Border Margin="10" Background="White" CornerRadius="5" Grid.Column="0" Grid.Row="1">
+                                    <DataGrid   SelectedItem="{Binding Path=SelectedAvac}" ItemsSource="{Binding Path=ListA}" Margin="10">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding Path=WhenString}" Width="*" Header="Дата"/>
+                                            <DataGridTextColumn Binding="{Binding Path=Employee.FullName}" Width="*" Header="Сотрудник"/>
+                                            <DataGridTextColumn Binding="{Binding Path=Total}" Width="*" Header="Аванс"/>
+                                            <DataGridTextColumn Binding="{Binding Path=Fine}" Width="*" Header="Штраф"/>
+                                            <DataGridTextColumn Binding="{Binding Path=DateIn}" Width="*" Header="С"/>
+                                            <DataGridTextColumn Binding="{Binding Path=DateOut}" Width="*" Header="ПО"/>
+
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Border>
+                                <Border  CornerRadius="5" Grid.Row="1" Grid.Column="1" Background="White" Margin="5,10,10,10">
+                                    <StackPanel Margin="5">
+                                        <Button Command="{Binding Path=AddAv}" Content="Добавить" Margin="2"/>
+                                        <Button Visibility="{Binding Path=IsVis}" Command="{Binding Path=EditAvac}" Content="Редактировать" Margin="2"/>
+
+                                        <Button Visibility="{Binding Path=IsVis}" Command="{Binding Path=DeleteAvac}" Content="Удалить" Margin="2"/>
+
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="Silver" Opacity="0.7" Visibility="{Binding Path=IsVisibility}">
+            <fa:ImageAwesome Opacity="1" VerticalAlignment="Center" HorizontalAlignment="Center" Icon="Refresh" Visibility="{Binding Path=IsVisibility}" Spin="{Binding Path=IsVisible}" Height="48" Width="48" />
+            <TextBlock Text="Идет загрузка" Visibility="{Binding Path=IsVisibility}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0"/>
+        </Grid>
+    </Grid>
+</Window>

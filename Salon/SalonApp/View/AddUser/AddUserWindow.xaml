@@ -1,0 +1,35 @@
+﻿<Window x:Class="SalonApp.View.AddUser.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.AddUser"
+        mc:Ignorable="d"
+        Title="Добавление пользователя" Height="400" Width="500">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Border Margin="10" Grid.Column="1" CornerRadius="5" Background="#E7ECEF">
+            <StackPanel VerticalAlignment="Center" Margin="25">
+                <TextBlock Margin="4" Text="Сотрудник" TextAlignment="Center" FontSize="17"/>
+                <ComboBox SelectedItem="{Binding Path=SelectedEmployee}" ItemsSource="{Binding Path=Employees}" DisplayMemberPath="FullName" Margin="4" FontSize="17"/>
+                <TextBlock Margin="4" Text="Тип учетной записи" TextAlignment="Center" FontSize="17"/>
+                <ComboBox Text="{Binding Path=SelectedType}" Margin="4" FontSize="17">
+                    <ComboBoxItem Content="Админ"/>
+                    <ComboBoxItem Content="Виртуальный админ"/>
+                    <ComboBoxItem Content="Владелец"/>
+                    <ComboBoxItem Content="Директор"/>
+                </ComboBox>
+                <TextBlock Margin="4" Text="Логин" TextAlignment="Center" FontSize="17"/>
+                <TextBox Text="{Binding Path=Login}" FontSize="17" Margin="4"/>
+                <TextBlock Margin="4" Text="Пароль" TextAlignment="Center" FontSize="17"/>
+                <PasswordBox x:Name="PasswordBox1" FontSize="17" Margin="4"/>
+                <Button Command="{Binding Path=AddUserCommand}" CommandParameter="{Binding ElementName=PasswordBox1}" Margin="4" FontSize="17" Content="Добавить"/>
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</Window>

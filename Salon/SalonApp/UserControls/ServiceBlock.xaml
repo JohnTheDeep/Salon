@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Salon.UserControls.ServiceBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Salon.UserControls"
+             mc:Ignorable="d"  Background="Transparent"
+             d:DesignHeight="180" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#6096BA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="#6096BA">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel TextBlock.FontFamily="bahnschrift" VerticalAlignment="Center"  Margin="8">
+        <Border Width="250" Height="160" Background="White" CornerRadius="5">
+            <StackPanel  Margin="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Width="40" Height="45" Opacity="0.8" Source="{Binding Path=Img}"/>
+                    <TextBlock TextAlignment="Center" Foreground="Black" x:Name="TitleBox" Margin="5" Text="{Binding Path=Service.ServiceName}" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <ComboBox BorderBrush="Gray" BorderThickness="1.5"  SelectedItem="{Binding Path=SelectedEmployee}" x:Name="MasterComboBox" ItemsSource="{Binding Path=Employees}" DisplayMemberPath="FullName" Margin="5" Height="40"/>
+                <Button Command="{Binding Path=OpenWindowCommand}" Height="40" x:Name="AddButon" Margin="5" FontSize="22" Content="добавить" />
+                
+                
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SalonDbTestConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SalonDbTestConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ReportViewerProject.Properties.Settings.GlobalReference.Default.SalonDbTestConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT STAT.Salary,STAT.BaseBid, STAT.VirtualAdminBid, D.DutyDate, D.CashPerDay, D.NonCashPerDay, D.Total, S.ServiceName, E.FullName, R.RankName, E.EntryTreshold, E.Bid, E.Paddit, E.Pfictive, E.Phandjob, E.Ppackage, J.UserTotal, J.ClientName, 
+                J.Cash, J.NonCash, J.Transfer, J.Fictive, J.AdditCash, J.AdditNonCash, J.HandJobCash, J.HandJobNonCash, J.PackageCash, J.PackageNonCash, J.Sertificate, ENR.[Percent] AS per, J.Package AS PACK , S.ServiceType 
+                FROM     JournalT AS J 
+				INNER JOIN DutyT AS D ON D.Id = J.DutyId 
+				INNER JOIN ServicesT AS S ON S.Id = J.Service_Id 
+				INNER JOIN EmployeesT AS E ON E.Id = J.Employee_id 
+				INNER JOIN RanksT AS R ON R.Id = E.Rank_Id 
+				INNER JOIN Enrollments AS ENR ON ENR.EmployeeId = E.Id AND ENR.ServiceId = S.Id
+				INNER JOIN  StatisticT AS STAT ON STAT.Employee_Id = E.Id AND STAT.Duty_Id = D.Id </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DutyDate" DataSetColumn="DutyDate" />
+              <Mapping SourceColumn="CashPerDay" DataSetColumn="CashPerDay" />
+              <Mapping SourceColumn="NonCashPerDay" DataSetColumn="NonCashPerDay" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="ServiceName" DataSetColumn="ServiceName" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="RankName" DataSetColumn="RankName" />
+              <Mapping SourceColumn="ClientName" DataSetColumn="ClientName" />
+              <Mapping SourceColumn="Cash" DataSetColumn="Cash" />
+              <Mapping SourceColumn="NonCash" DataSetColumn="NonCash" />
+              <Mapping SourceColumn="Transfer" DataSetColumn="Transfer" />
+              <Mapping SourceColumn="EntryTreshold" DataSetColumn="EntryTreshold" />
+              <Mapping SourceColumn="Bid" DataSetColumn="Bid" />
+              <Mapping SourceColumn="Paddit" DataSetColumn="Paddit" />
+              <Mapping SourceColumn="Pfictive" DataSetColumn="Pfictive" />
+              <Mapping SourceColumn="Phandjob" DataSetColumn="Phandjob" />
+              <Mapping SourceColumn="Ppackage" DataSetColumn="Ppackage" />
+              <Mapping SourceColumn="Fictive" DataSetColumn="Fictive" />
+              <Mapping SourceColumn="AdditCash" DataSetColumn="AdditCash" />
+              <Mapping SourceColumn="AdditNonCash" DataSetColumn="AdditNonCash" />
+              <Mapping SourceColumn="HandJobCash" DataSetColumn="HandJobCash" />
+              <Mapping SourceColumn="HandJobNonCash" DataSetColumn="HandJobNonCash" />
+              <Mapping SourceColumn="PackageCash" DataSetColumn="PackageCash" />
+              <Mapping SourceColumn="PackageNonCash" DataSetColumn="PackageNonCash" />
+              <Mapping SourceColumn="Sertificate" DataSetColumn="Sertificate" />
+              <Mapping SourceColumn="per" DataSetColumn="per" />
+              <Mapping SourceColumn="BaseBid" DataSetColumn="BaseBid" />
+              <Mapping SourceColumn="VirtualAdminBid" DataSetColumn="VirtualAdminBid" />
+              <Mapping SourceColumn="UserTotal" DataSetColumn="UserTotal" />
+              <Mapping SourceColumn="PACK" DataSetColumn="PACK" />
+              <Mapping SourceColumn="ServiceType" DataSetColumn="ServiceType" />
+              <Mapping SourceColumn="Salary" DataSetColumn="Salary" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT STAT.BaseBid, STAT.VirtualAdminBid, D.DutyDate, D.CashPerDay, D.NonCashPerDay, D.Total, S.ServiceName, E.FullName, R.RankName, E.EntryTreshold, E.Bid, E.Paddit, E.Pfictive, E.Phandjob, E.Ppackage, J.UserTotal, J.ClientName, 
+                  J.Cash, J.NonCash, J.Transfer, J.Fictive, J.AdditCash, J.AdditNonCash, J.HandJobCash, J.HandJobNonCash, J.PackageCash, J.PackageNonCash, J.Sertificate, ENR.[Percent] AS per, J.Total AS tOtaL2
+FROM     JournalT AS J INNER JOIN
+                  DutyT AS D ON D.Id = J.DutyId INNER JOIN
+                  ServicesT AS S ON S.Id = J.Service_Id INNER JOIN
+                  EmployeesT AS E ON E.Id = J.Employee_id INNER JOIN
+                  RanksT AS R ON R.Id = E.Rank_Id INNER JOIN
+                  Enrollments AS ENR ON ENR.EmployeeId = E.Id AND ENR.ServiceId = S.Id INNER JOIN
+                  StatisticT AS STAT ON STAT.Employee_Id = E.Id AND STAT.Duty_Id = D.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BaseBid" DataSetColumn="BaseBid" />
+              <Mapping SourceColumn="VirtualAdminBid" DataSetColumn="VirtualAdminBid" />
+              <Mapping SourceColumn="DutyDate" DataSetColumn="DutyDate" />
+              <Mapping SourceColumn="CashPerDay" DataSetColumn="CashPerDay" />
+              <Mapping SourceColumn="NonCashPerDay" DataSetColumn="NonCashPerDay" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="ServiceName" DataSetColumn="ServiceName" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="RankName" DataSetColumn="RankName" />
+              <Mapping SourceColumn="EntryTreshold" DataSetColumn="EntryTreshold" />
+              <Mapping SourceColumn="Bid" DataSetColumn="Bid" />
+              <Mapping SourceColumn="Paddit" DataSetColumn="Paddit" />
+              <Mapping SourceColumn="Pfictive" DataSetColumn="Pfictive" />
+              <Mapping SourceColumn="Phandjob" DataSetColumn="Phandjob" />
+              <Mapping SourceColumn="Ppackage" DataSetColumn="Ppackage" />
+              <Mapping SourceColumn="UserTotal" DataSetColumn="UserTotal" />
+              <Mapping SourceColumn="ClientName" DataSetColumn="ClientName" />
+              <Mapping SourceColumn="Cash" DataSetColumn="Cash" />
+              <Mapping SourceColumn="NonCash" DataSetColumn="NonCash" />
+              <Mapping SourceColumn="Transfer" DataSetColumn="Transfer" />
+              <Mapping SourceColumn="Fictive" DataSetColumn="Fictive" />
+              <Mapping SourceColumn="AdditCash" DataSetColumn="AdditCash" />
+              <Mapping SourceColumn="AdditNonCash" DataSetColumn="AdditNonCash" />
+              <Mapping SourceColumn="HandJobCash" DataSetColumn="HandJobCash" />
+              <Mapping SourceColumn="HandJobNonCash" DataSetColumn="HandJobNonCash" />
+              <Mapping SourceColumn="PackageCash" DataSetColumn="PackageCash" />
+              <Mapping SourceColumn="PackageNonCash" DataSetColumn="PackageNonCash" />
+              <Mapping SourceColumn="Sertificate" DataSetColumn="Sertificate" />
+              <Mapping SourceColumn="per" DataSetColumn="per" />
+              <Mapping SourceColumn="tOtaL2" DataSetColumn="tOtaL2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AvanciesTTableAdapter" GeneratorDataComponentClassName="AvanciesTTableAdapter" Name="AvanciesT" UserDataComponentName="AvanciesTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectName="SalonDbTest.dbo.AvanciesT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.DateIn, A.DateOut, A.Fine, A.Total, A.Id FROM AvanciesT AS A INNER JOIN EmployeesT AS E ON E.Id = A.Employee_Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DateIn" DataSetColumn="DateIn" />
+              <Mapping SourceColumn="DateOut" DataSetColumn="DateOut" />
+              <Mapping SourceColumn="Fine" DataSetColumn="Fine" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	D.DutyDate,D.CashPerDay,D.NonCashPerDay,D.TransfersPerDay,D.TotalSertificates,D.Income,
+	EMP.FullName,usr.NickName,
+	STAT.BaseBid,STAT.IsAdmin,STAT.VirtualAdminBid,STAT.Total
+
+	FROM StatisticT STAT  
+	INNER JOIN DutyT D ON D.Id = STAT.Duty_Id
+	INNER JOIN EmployeesT EMP ON EMP.Id = STAT.Employee_Id
+	LEFT JOIN UsersT usr ON usr.Employee_Id = EMP.Id 
+	WHERE Stat.IsAdmin = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DutyDate" DataSetColumn="DutyDate" />
+              <Mapping SourceColumn="CashPerDay" DataSetColumn="CashPerDay" />
+              <Mapping SourceColumn="NonCashPerDay" DataSetColumn="NonCashPerDay" />
+              <Mapping SourceColumn="TransfersPerDay" DataSetColumn="TransfersPerDay" />
+              <Mapping SourceColumn="TotalSertificates" DataSetColumn="TotalSertificates" />
+              <Mapping SourceColumn="Income" DataSetColumn="Income" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="NickName" DataSetColumn="NickName" />
+              <Mapping SourceColumn="BaseBid" DataSetColumn="BaseBid" />
+              <Mapping SourceColumn="IsAdmin" DataSetColumn="IsAdmin" />
+              <Mapping SourceColumn="VirtualAdminBid" DataSetColumn="VirtualAdminBid" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Stat.Salary,STAT.Id,Stat.Total AS UserTotal, Stat.BaseBid, Stat.VirtualAdminBid, D.DutyDate, D.CashPerDay, D.NonCashPerDay, D.Total,E.FullName, R.RankName, E.EntryTreshold, E.Bid, E.Paddit, E.Pfictive, E.Phandjob, E.Ppackage, 
+                  S.ServiceType
+FROM     StatisticT AS Stat INNER JOIN
+                  DutyT AS D ON D.Id = Stat.Duty_Id INNER JOIN
+                  EmployeesT AS E ON E.Id = Stat.Employee_Id INNER JOIN
+                  RanksT AS R ON R.Id = E.Rank_Id INNER JOIN
+                  Enrollments AS ENR ON ENR.EmployeeId = E.Id INNER JOIN
+                  ServicesT AS S ON S.Id = ENR.ServiceId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BaseBid" DataSetColumn="BaseBid" />
+              <Mapping SourceColumn="VirtualAdminBid" DataSetColumn="VirtualAdminBid" />
+              <Mapping SourceColumn="DutyDate" DataSetColumn="DutyDate" />
+              <Mapping SourceColumn="CashPerDay" DataSetColumn="CashPerDay" />
+              <Mapping SourceColumn="NonCashPerDay" DataSetColumn="NonCashPerDay" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="RankName" DataSetColumn="RankName" />
+              <Mapping SourceColumn="EntryTreshold" DataSetColumn="EntryTreshold" />
+              <Mapping SourceColumn="Bid" DataSetColumn="Bid" />
+              <Mapping SourceColumn="Paddit" DataSetColumn="Paddit" />
+              <Mapping SourceColumn="Pfictive" DataSetColumn="Pfictive" />
+              <Mapping SourceColumn="Phandjob" DataSetColumn="Phandjob" />
+              <Mapping SourceColumn="Ppackage" DataSetColumn="Ppackage" />
+              <Mapping SourceColumn="ServiceType" DataSetColumn="ServiceType" />
+              <Mapping SourceColumn="UserTotal" DataSetColumn="UserTotal" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Salary" DataSetColumn="Salary" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable5TableAdapter" GeneratorDataComponentClassName="DataTable5TableAdapter" Name="DataTable5" UserDataComponentName="DataTable5TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT T.Id, T.Duty_Id, T.Employee_Id, T.IsAdmin, T.Total, T.IsVirtualAdmin, T.isArrivedVirtualAdminBid, T.BaseBid, T.VirtualAdminBid, T.Salary, D.Id AS Expr1, D.DutyDate, D.Salon_Id, D.User_Id, D.IsVirtualAdmin AS Expr2, D.CashPerDay, 
+                  D.NonCashPerDay, D.TransfersPerDay, D.Total AS Expr3, D.TotalSertificates, D.IsArrived, D.Taken, D.Income, D.newcol
+FROM     StatisticT AS T INNER JOIN
+                  DutyT AS D ON D.Id = T.Duty_Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Duty_Id" DataSetColumn="Duty_Id" />
+              <Mapping SourceColumn="Employee_Id" DataSetColumn="Employee_Id" />
+              <Mapping SourceColumn="IsAdmin" DataSetColumn="IsAdmin" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="IsVirtualAdmin" DataSetColumn="IsVirtualAdmin" />
+              <Mapping SourceColumn="isArrivedVirtualAdminBid" DataSetColumn="isArrivedVirtualAdminBid" />
+              <Mapping SourceColumn="BaseBid" DataSetColumn="BaseBid" />
+              <Mapping SourceColumn="VirtualAdminBid" DataSetColumn="VirtualAdminBid" />
+              <Mapping SourceColumn="Salary" DataSetColumn="Salary" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="DutyDate" DataSetColumn="DutyDate" />
+              <Mapping SourceColumn="Salon_Id" DataSetColumn="Salon_Id" />
+              <Mapping SourceColumn="User_Id" DataSetColumn="User_Id" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="CashPerDay" DataSetColumn="CashPerDay" />
+              <Mapping SourceColumn="NonCashPerDay" DataSetColumn="NonCashPerDay" />
+              <Mapping SourceColumn="TransfersPerDay" DataSetColumn="TransfersPerDay" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+              <Mapping SourceColumn="TotalSertificates" DataSetColumn="TotalSertificates" />
+              <Mapping SourceColumn="IsArrived" DataSetColumn="IsArrived" />
+              <Mapping SourceColumn="Taken" DataSetColumn="Taken" />
+              <Mapping SourceColumn="Income" DataSetColumn="Income" />
+              <Mapping SourceColumn="newcol" DataSetColumn="newcol" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable6TableAdapter" GeneratorDataComponentClassName="DataTable6TableAdapter" Name="DataTable6" UserDataComponentName="DataTable6TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EMP.FullName,R.RankName,
+	(SELECT IsNull(SUM(Salary),0) FROM StatisticT T WHERE T.Employee_Id = Emp.Id) AS EmployeeSalary,
+	(SELECT IsNull(SUM(A.Total),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvancies,
+	(SELECT IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvanciesFine,
+	(SELECT IsNull(SUM(A.Total),0) - IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvanciesTotal,
+	((SELECT IsNull(SUM(Total),0) FROM StatisticT T WHERE T.Employee_Id = Emp.Id) - (SELECT IsNull(SUM(A.Total),0) - IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id)) AS Give 
+	FROM EmployeesT EMP
+	INNER JOIN RanksT R ON R.Id = EMP.Rank_Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="RankName" DataSetColumn="RankName" />
+              <Mapping SourceColumn="EmployeeSalary" DataSetColumn="EmployeeSalary" />
+              <Mapping SourceColumn="EmployeeAvancies" DataSetColumn="EmployeeAvancies" />
+              <Mapping SourceColumn="EmployeeAvanciesFine" DataSetColumn="EmployeeAvanciesFine" />
+              <Mapping SourceColumn="EmployeeAvanciesTotal" DataSetColumn="EmployeeAvanciesTotal" />
+              <Mapping SourceColumn="Give" DataSetColumn="Give" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable7TableAdapter" GeneratorDataComponentClassName="DataTable7TableAdapter" Name="DataTable7" UserDataComponentName="DataTable7TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>	SELECT EMP.FullName,R.RankName,
+	(SELECT IsNull(SUM(BaseBid),0) + IsNull(SUM(VirtualAdminBid),0) + IsNull(SUM(Total),0) FROM StatisticT T WHERE T.Employee_Id = Emp.Id) AS EmployeeSalary,
+	(SELECT IsNull(SUM(A.Total),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvancies,
+	(SELECT IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvanciesFine,
+	(SELECT IsNull(SUM(A.Total),0) - IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id) AS EmployeeAvanciesTotal,
+	((SELECT IsNull(SUM(BaseBid),0) + IsNull(SUM(VirtualAdminBid),0) + IsNull(SUM(Total),0) FROM StatisticT T WHERE T.Employee_Id = Emp.Id) - (SELECT IsNull(SUM(A.Total),0) - IsNull(SUM(A.Fine),0) FROM AvanciesT A WHERE A.Employee_Id = EMP.Id)) AS Give 
+	FROM EmployeesT EMP
+	INNER JOIN RanksT R ON R.Id = EMP.Rank_Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="RankName" DataSetColumn="RankName" />
+              <Mapping SourceColumn="EmployeeSalary" DataSetColumn="EmployeeSalary" />
+              <Mapping SourceColumn="EmployeeAvancies" DataSetColumn="EmployeeAvancies" />
+              <Mapping SourceColumn="EmployeeAvanciesFine" DataSetColumn="EmployeeAvanciesFine" />
+              <Mapping SourceColumn="EmployeeAvanciesTotal" DataSetColumn="EmployeeAvanciesTotal" />
+              <Mapping SourceColumn="Give" DataSetColumn="Give" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DutyTTableAdapter" GeneratorDataComponentClassName="DutyTTableAdapter" Name="DutyT" UserDataComponentName="DutyTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SalonDbTestConnectionString (Settings)" DbObjectName="SalonDbTEST.dbo.DutyT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [DutyT] WHERE (([newcol] = @Original_newcol) AND ([Id] = @Original_Id))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@Original_newcol" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="newcol" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT newcol, Id FROM DutyT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [DutyT] SET [newcol] = @newcol WHERE (([newcol] = @Original_newcol) AND ([Id] = @Original_Id));
+SELECT newcol, Id FROM DutyT WHERE (Id = @Id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@newcol" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="newcol" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime2" Direction="Input" ParameterName="@Original_newcol" Precision="0" ProviderType="DateTime2" Scale="0" Size="0" SourceColumn="newcol" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="SalonDbTEST.dbo.DutyT" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="newcol" DataSetColumn="newcol" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DutyDate" msprop:Generator_ColumnPropNameInTable="DutyDateColumn" msprop:Generator_ColumnPropNameInRow="DutyDate" msprop:Generator_UserColumnName="DutyDate" msprop:Generator_ColumnVarNameInTable="columnDutyDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CashPerDay" msprop:Generator_ColumnPropNameInTable="CashPerDayColumn" msprop:Generator_ColumnPropNameInRow="CashPerDay" msprop:Generator_UserColumnName="CashPerDay" msprop:Generator_ColumnVarNameInTable="columnCashPerDay" type="xs:decimal" />
+              <xs:element name="NonCashPerDay" msprop:Generator_ColumnPropNameInTable="NonCashPerDayColumn" msprop:Generator_ColumnPropNameInRow="NonCashPerDay" msprop:Generator_UserColumnName="NonCashPerDay" msprop:Generator_ColumnVarNameInTable="columnNonCashPerDay" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+              <xs:element name="ServiceName" msprop:Generator_ColumnPropNameInTable="ServiceNameColumn" msprop:Generator_ColumnPropNameInRow="ServiceName" msprop:Generator_UserColumnName="ServiceName" msprop:Generator_ColumnVarNameInTable="columnServiceName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RankName" msprop:Generator_ColumnPropNameInTable="RankNameColumn" msprop:Generator_ColumnPropNameInRow="RankName" msprop:Generator_UserColumnName="RankName" msprop:Generator_ColumnVarNameInTable="columnRankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ClientName" msprop:Generator_ColumnPropNameInTable="ClientNameColumn" msprop:Generator_ColumnPropNameInRow="ClientName" msprop:Generator_UserColumnName="ClientName" msprop:Generator_ColumnVarNameInTable="columnClientName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cash" msprop:Generator_ColumnPropNameInTable="CashColumn" msprop:Generator_ColumnPropNameInRow="Cash" msprop:Generator_UserColumnName="Cash" msprop:Generator_ColumnVarNameInTable="columnCash" type="xs:decimal" />
+              <xs:element name="NonCash" msprop:Generator_ColumnPropNameInTable="NonCashColumn" msprop:Generator_ColumnPropNameInRow="NonCash" msprop:Generator_UserColumnName="NonCash" msprop:Generator_ColumnVarNameInTable="columnNonCash" type="xs:decimal" />
+              <xs:element name="Transfer" msprop:Generator_ColumnPropNameInTable="TransferColumn" msprop:Generator_ColumnPropNameInRow="Transfer" msprop:Generator_UserColumnName="Transfer" msprop:Generator_ColumnVarNameInTable="columnTransfer" type="xs:decimal" />
+              <xs:element name="EntryTreshold" msprop:Generator_ColumnPropNameInTable="EntryTresholdColumn" msprop:Generator_ColumnPropNameInRow="EntryTreshold" msprop:Generator_UserColumnName="EntryTreshold" msprop:Generator_ColumnVarNameInTable="columnEntryTreshold" type="xs:decimal" />
+              <xs:element name="Bid" msprop:Generator_ColumnPropNameInTable="BidColumn" msprop:Generator_ColumnPropNameInRow="Bid" msprop:Generator_UserColumnName="Bid" msprop:Generator_ColumnVarNameInTable="columnBid" type="xs:decimal" />
+              <xs:element name="Paddit" msprop:Generator_ColumnPropNameInTable="PadditColumn" msprop:Generator_ColumnPropNameInRow="Paddit" msprop:Generator_UserColumnName="Paddit" msprop:Generator_ColumnVarNameInTable="columnPaddit" type="xs:decimal" />
+              <xs:element name="Pfictive" msprop:Generator_ColumnPropNameInTable="PfictiveColumn" msprop:Generator_ColumnPropNameInRow="Pfictive" msprop:Generator_UserColumnName="Pfictive" msprop:Generator_ColumnVarNameInTable="columnPfictive" type="xs:decimal" />
+              <xs:element name="Phandjob" msprop:Generator_ColumnPropNameInTable="PhandjobColumn" msprop:Generator_ColumnPropNameInRow="Phandjob" msprop:Generator_UserColumnName="Phandjob" msprop:Generator_ColumnVarNameInTable="columnPhandjob" type="xs:decimal" />
+              <xs:element name="Ppackage" msprop:Generator_ColumnPropNameInTable="PpackageColumn" msprop:Generator_ColumnPropNameInRow="Ppackage" msprop:Generator_UserColumnName="Ppackage" msprop:Generator_ColumnVarNameInTable="columnPpackage" type="xs:decimal" />
+              <xs:element name="Fictive" msprop:Generator_ColumnPropNameInTable="FictiveColumn" msprop:Generator_ColumnPropNameInRow="Fictive" msprop:Generator_UserColumnName="Fictive" msprop:Generator_ColumnVarNameInTable="columnFictive" type="xs:decimal" />
+              <xs:element name="AdditCash" msprop:Generator_ColumnPropNameInTable="AdditCashColumn" msprop:Generator_ColumnPropNameInRow="AdditCash" msprop:Generator_UserColumnName="AdditCash" msprop:Generator_ColumnVarNameInTable="columnAdditCash" type="xs:decimal" />
+              <xs:element name="AdditNonCash" msprop:Generator_ColumnPropNameInTable="AdditNonCashColumn" msprop:Generator_ColumnPropNameInRow="AdditNonCash" msprop:Generator_UserColumnName="AdditNonCash" msprop:Generator_ColumnVarNameInTable="columnAdditNonCash" type="xs:decimal" />
+              <xs:element name="HandJobCash" msprop:Generator_ColumnPropNameInTable="HandJobCashColumn" msprop:Generator_ColumnPropNameInRow="HandJobCash" msprop:Generator_UserColumnName="HandJobCash" msprop:Generator_ColumnVarNameInTable="columnHandJobCash" type="xs:decimal" />
+              <xs:element name="HandJobNonCash" msprop:Generator_ColumnPropNameInTable="HandJobNonCashColumn" msprop:Generator_ColumnPropNameInRow="HandJobNonCash" msprop:Generator_UserColumnName="HandJobNonCash" msprop:Generator_ColumnVarNameInTable="columnHandJobNonCash" type="xs:decimal" />
+              <xs:element name="PackageCash" msprop:Generator_ColumnPropNameInTable="PackageCashColumn" msprop:Generator_ColumnPropNameInRow="PackageCash" msprop:Generator_UserColumnName="PackageCash" msprop:Generator_ColumnVarNameInTable="columnPackageCash" type="xs:decimal" />
+              <xs:element name="PackageNonCash" msprop:Generator_ColumnPropNameInTable="PackageNonCashColumn" msprop:Generator_ColumnPropNameInRow="PackageNonCash" msprop:Generator_UserColumnName="PackageNonCash" msprop:Generator_ColumnVarNameInTable="columnPackageNonCash" type="xs:decimal" />
+              <xs:element name="Sertificate" msprop:Generator_ColumnPropNameInTable="SertificateColumn" msprop:Generator_ColumnPropNameInRow="Sertificate" msprop:Generator_UserColumnName="Sertificate" msprop:Generator_ColumnVarNameInTable="columnSertificate" type="xs:decimal" />
+              <xs:element name="per" msprop:Generator_ColumnPropNameInTable="perColumn" msprop:Generator_ColumnPropNameInRow="per" msprop:Generator_UserColumnName="per" msprop:Generator_ColumnVarNameInTable="columnper" type="xs:decimal" />
+              <xs:element name="BaseBid" msprop:Generator_ColumnPropNameInTable="BaseBidColumn" msprop:Generator_ColumnPropNameInRow="BaseBid" msprop:Generator_UserColumnName="BaseBid" msprop:Generator_ColumnVarNameInTable="columnBaseBid" type="xs:decimal" />
+              <xs:element name="VirtualAdminBid" msprop:Generator_ColumnPropNameInTable="VirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="VirtualAdminBid" msprop:Generator_UserColumnName="VirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnVirtualAdminBid" type="xs:decimal" />
+              <xs:element name="UserTotal" msprop:Generator_ColumnPropNameInTable="UserTotalColumn" msprop:Generator_ColumnPropNameInRow="UserTotal" msprop:Generator_UserColumnName="UserTotal" msprop:Generator_ColumnVarNameInTable="columnUserTotal" type="xs:decimal" />
+              <xs:element name="PACK" msprop:Generator_ColumnPropNameInTable="PACKColumn" msprop:Generator_ColumnPropNameInRow="PACK" msprop:Generator_UserColumnName="PACK" msprop:Generator_ColumnVarNameInTable="columnPACK" type="xs:decimal" />
+              <xs:element name="ServiceType" msprop:Generator_ColumnPropNameInTable="ServiceTypeColumn" msprop:Generator_ColumnPropNameInRow="ServiceType" msprop:Generator_UserColumnName="ServiceType" msprop:Generator_ColumnVarNameInTable="columnServiceType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BaseBid" msprop:Generator_ColumnPropNameInTable="BaseBidColumn" msprop:Generator_ColumnPropNameInRow="BaseBid" msprop:Generator_UserColumnName="BaseBid" msprop:Generator_ColumnVarNameInTable="columnBaseBid" type="xs:decimal" />
+              <xs:element name="VirtualAdminBid" msprop:Generator_ColumnPropNameInTable="VirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="VirtualAdminBid" msprop:Generator_UserColumnName="VirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnVirtualAdminBid" type="xs:decimal" />
+              <xs:element name="DutyDate" msprop:Generator_ColumnPropNameInTable="DutyDateColumn" msprop:Generator_ColumnPropNameInRow="DutyDate" msprop:Generator_UserColumnName="DutyDate" msprop:Generator_ColumnVarNameInTable="columnDutyDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CashPerDay" msprop:Generator_ColumnPropNameInTable="CashPerDayColumn" msprop:Generator_ColumnPropNameInRow="CashPerDay" msprop:Generator_UserColumnName="CashPerDay" msprop:Generator_ColumnVarNameInTable="columnCashPerDay" type="xs:decimal" />
+              <xs:element name="NonCashPerDay" msprop:Generator_ColumnPropNameInTable="NonCashPerDayColumn" msprop:Generator_ColumnPropNameInRow="NonCashPerDay" msprop:Generator_UserColumnName="NonCashPerDay" msprop:Generator_ColumnVarNameInTable="columnNonCashPerDay" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+              <xs:element name="ServiceName" msprop:Generator_ColumnPropNameInTable="ServiceNameColumn" msprop:Generator_ColumnPropNameInRow="ServiceName" msprop:Generator_UserColumnName="ServiceName" msprop:Generator_ColumnVarNameInTable="columnServiceName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RankName" msprop:Generator_ColumnPropNameInTable="RankNameColumn" msprop:Generator_ColumnPropNameInRow="RankName" msprop:Generator_UserColumnName="RankName" msprop:Generator_ColumnVarNameInTable="columnRankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntryTreshold" msprop:Generator_ColumnPropNameInTable="EntryTresholdColumn" msprop:Generator_ColumnPropNameInRow="EntryTreshold" msprop:Generator_UserColumnName="EntryTreshold" msprop:Generator_ColumnVarNameInTable="columnEntryTreshold" type="xs:decimal" />
+              <xs:element name="Bid" msprop:Generator_ColumnPropNameInTable="BidColumn" msprop:Generator_ColumnPropNameInRow="Bid" msprop:Generator_UserColumnName="Bid" msprop:Generator_ColumnVarNameInTable="columnBid" type="xs:decimal" />
+              <xs:element name="Paddit" msprop:Generator_ColumnPropNameInTable="PadditColumn" msprop:Generator_ColumnPropNameInRow="Paddit" msprop:Generator_UserColumnName="Paddit" msprop:Generator_ColumnVarNameInTable="columnPaddit" type="xs:decimal" />
+              <xs:element name="Pfictive" msprop:Generator_ColumnPropNameInTable="PfictiveColumn" msprop:Generator_ColumnPropNameInRow="Pfictive" msprop:Generator_UserColumnName="Pfictive" msprop:Generator_ColumnVarNameInTable="columnPfictive" type="xs:decimal" />
+              <xs:element name="Phandjob" msprop:Generator_ColumnPropNameInTable="PhandjobColumn" msprop:Generator_ColumnPropNameInRow="Phandjob" msprop:Generator_UserColumnName="Phandjob" msprop:Generator_ColumnVarNameInTable="columnPhandjob" type="xs:decimal" />
+              <xs:element name="Ppackage" msprop:Generator_ColumnPropNameInTable="PpackageColumn" msprop:Generator_ColumnPropNameInRow="Ppackage" msprop:Generator_UserColumnName="Ppackage" msprop:Generator_ColumnVarNameInTable="columnPpackage" type="xs:decimal" />
+              <xs:element name="UserTotal" msprop:Generator_ColumnPropNameInTable="UserTotalColumn" msprop:Generator_ColumnPropNameInRow="UserTotal" msprop:Generator_UserColumnName="UserTotal" msprop:Generator_ColumnVarNameInTable="columnUserTotal" type="xs:decimal" />
+              <xs:element name="ClientName" msprop:Generator_ColumnPropNameInTable="ClientNameColumn" msprop:Generator_ColumnPropNameInRow="ClientName" msprop:Generator_UserColumnName="ClientName" msprop:Generator_ColumnVarNameInTable="columnClientName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cash" msprop:Generator_ColumnPropNameInTable="CashColumn" msprop:Generator_ColumnPropNameInRow="Cash" msprop:Generator_UserColumnName="Cash" msprop:Generator_ColumnVarNameInTable="columnCash" type="xs:decimal" />
+              <xs:element name="NonCash" msprop:Generator_ColumnPropNameInTable="NonCashColumn" msprop:Generator_ColumnPropNameInRow="NonCash" msprop:Generator_UserColumnName="NonCash" msprop:Generator_ColumnVarNameInTable="columnNonCash" type="xs:decimal" />
+              <xs:element name="Transfer" msprop:Generator_ColumnPropNameInTable="TransferColumn" msprop:Generator_ColumnPropNameInRow="Transfer" msprop:Generator_UserColumnName="Transfer" msprop:Generator_ColumnVarNameInTable="columnTransfer" type="xs:decimal" />
+              <xs:element name="Fictive" msprop:Generator_ColumnPropNameInTable="FictiveColumn" msprop:Generator_ColumnPropNameInRow="Fictive" msprop:Generator_UserColumnName="Fictive" msprop:Generator_ColumnVarNameInTable="columnFictive" type="xs:decimal" />
+              <xs:element name="AdditCash" msprop:Generator_ColumnPropNameInTable="AdditCashColumn" msprop:Generator_ColumnPropNameInRow="AdditCash" msprop:Generator_UserColumnName="AdditCash" msprop:Generator_ColumnVarNameInTable="columnAdditCash" type="xs:decimal" />
+              <xs:element name="AdditNonCash" msprop:Generator_ColumnPropNameInTable="AdditNonCashColumn" msprop:Generator_ColumnPropNameInRow="AdditNonCash" msprop:Generator_UserColumnName="AdditNonCash" msprop:Generator_ColumnVarNameInTable="columnAdditNonCash" type="xs:decimal" />
+              <xs:element name="HandJobCash" msprop:Generator_ColumnPropNameInTable="HandJobCashColumn" msprop:Generator_ColumnPropNameInRow="HandJobCash" msprop:Generator_UserColumnName="HandJobCash" msprop:Generator_ColumnVarNameInTable="columnHandJobCash" type="xs:decimal" />
+              <xs:element name="HandJobNonCash" msprop:Generator_ColumnPropNameInTable="HandJobNonCashColumn" msprop:Generator_ColumnPropNameInRow="HandJobNonCash" msprop:Generator_UserColumnName="HandJobNonCash" msprop:Generator_ColumnVarNameInTable="columnHandJobNonCash" type="xs:decimal" />
+              <xs:element name="PackageCash" msprop:Generator_ColumnPropNameInTable="PackageCashColumn" msprop:Generator_ColumnPropNameInRow="PackageCash" msprop:Generator_UserColumnName="PackageCash" msprop:Generator_ColumnVarNameInTable="columnPackageCash" type="xs:decimal" />
+              <xs:element name="PackageNonCash" msprop:Generator_ColumnPropNameInTable="PackageNonCashColumn" msprop:Generator_ColumnPropNameInRow="PackageNonCash" msprop:Generator_UserColumnName="PackageNonCash" msprop:Generator_ColumnVarNameInTable="columnPackageNonCash" type="xs:decimal" />
+              <xs:element name="Sertificate" msprop:Generator_ColumnPropNameInTable="SertificateColumn" msprop:Generator_ColumnPropNameInRow="Sertificate" msprop:Generator_UserColumnName="Sertificate" msprop:Generator_ColumnVarNameInTable="columnSertificate" type="xs:decimal" />
+              <xs:element name="per" msprop:Generator_ColumnPropNameInTable="perColumn" msprop:Generator_ColumnPropNameInRow="per" msprop:Generator_UserColumnName="per" msprop:Generator_ColumnVarNameInTable="columnper" type="xs:decimal" />
+              <xs:element name="tOtaL2" msprop:Generator_ColumnPropNameInTable="tOtaL2Column" msprop:Generator_ColumnPropNameInRow="tOtaL2" msprop:Generator_UserColumnName="tOtaL2" msprop:Generator_ColumnVarNameInTable="columntOtaL2" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AvanciesT" msprop:Generator_RowEvHandlerName="AvanciesTRowChangeEventHandler" msprop:Generator_RowDeletedName="AvanciesTRowDeleted" msprop:Generator_RowDeletingName="AvanciesTRowDeleting" msprop:Generator_RowEvArgName="AvanciesTRowChangeEvent" msprop:Generator_TablePropName="AvanciesT" msprop:Generator_RowChangedName="AvanciesTRowChanged" msprop:Generator_UserTableName="AvanciesT" msprop:Generator_RowChangingName="AvanciesTRowChanging" msprop:Generator_RowClassName="AvanciesTRow" msprop:Generator_TableClassName="AvanciesTDataTable" msprop:Generator_TableVarName="tableAvanciesT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateIn" msprop:Generator_ColumnPropNameInTable="DateInColumn" msprop:Generator_ColumnPropNameInRow="DateIn" msprop:Generator_UserColumnName="DateIn" msprop:Generator_ColumnVarNameInTable="columnDateIn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOut" msprop:Generator_ColumnPropNameInTable="DateOutColumn" msprop:Generator_ColumnPropNameInRow="DateOut" msprop:Generator_UserColumnName="DateOut" msprop:Generator_ColumnVarNameInTable="columnDateOut">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fine" msprop:Generator_ColumnPropNameInTable="FineColumn" msprop:Generator_ColumnPropNameInRow="Fine" msprop:Generator_UserColumnName="Fine" msprop:Generator_ColumnVarNameInTable="columnFine" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_TablePropName="DataTable3" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DutyDate" msprop:Generator_ColumnPropNameInTable="DutyDateColumn" msprop:Generator_ColumnPropNameInRow="DutyDate" msprop:Generator_UserColumnName="DutyDate" msprop:Generator_ColumnVarNameInTable="columnDutyDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CashPerDay" msprop:Generator_ColumnPropNameInTable="CashPerDayColumn" msprop:Generator_ColumnPropNameInRow="CashPerDay" msprop:Generator_UserColumnName="CashPerDay" msprop:Generator_ColumnVarNameInTable="columnCashPerDay" type="xs:decimal" />
+              <xs:element name="NonCashPerDay" msprop:Generator_ColumnPropNameInTable="NonCashPerDayColumn" msprop:Generator_ColumnPropNameInRow="NonCashPerDay" msprop:Generator_UserColumnName="NonCashPerDay" msprop:Generator_ColumnVarNameInTable="columnNonCashPerDay" type="xs:decimal" />
+              <xs:element name="TransfersPerDay" msprop:Generator_ColumnPropNameInTable="TransfersPerDayColumn" msprop:Generator_ColumnPropNameInRow="TransfersPerDay" msprop:Generator_UserColumnName="TransfersPerDay" msprop:Generator_ColumnVarNameInTable="columnTransfersPerDay" type="xs:decimal" />
+              <xs:element name="TotalSertificates" msprop:Generator_ColumnPropNameInTable="TotalSertificatesColumn" msprop:Generator_ColumnPropNameInRow="TotalSertificates" msprop:Generator_UserColumnName="TotalSertificates" msprop:Generator_ColumnVarNameInTable="columnTotalSertificates" type="xs:decimal" />
+              <xs:element name="Income" msprop:Generator_ColumnPropNameInTable="IncomeColumn" msprop:Generator_ColumnPropNameInRow="Income" msprop:Generator_UserColumnName="Income" msprop:Generator_ColumnVarNameInTable="columnIncome" type="xs:decimal" />
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NickName" msprop:Generator_ColumnPropNameInTable="NickNameColumn" msprop:Generator_ColumnPropNameInRow="NickName" msprop:Generator_UserColumnName="NickName" msprop:Generator_ColumnVarNameInTable="columnNickName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BaseBid" msprop:Generator_ColumnPropNameInTable="BaseBidColumn" msprop:Generator_ColumnPropNameInRow="BaseBid" msprop:Generator_UserColumnName="BaseBid" msprop:Generator_ColumnVarNameInTable="columnBaseBid" type="xs:decimal" />
+              <xs:element name="IsAdmin" msprop:Generator_ColumnPropNameInTable="IsAdminColumn" msprop:Generator_ColumnPropNameInRow="IsAdmin" msprop:Generator_UserColumnName="IsAdmin" msprop:Generator_ColumnVarNameInTable="columnIsAdmin" type="xs:boolean" />
+              <xs:element name="VirtualAdminBid" msprop:Generator_ColumnPropNameInTable="VirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="VirtualAdminBid" msprop:Generator_UserColumnName="VirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnVirtualAdminBid" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_TablePropName="DataTable4" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BaseBid" msprop:Generator_ColumnPropNameInTable="BaseBidColumn" msprop:Generator_ColumnPropNameInRow="BaseBid" msprop:Generator_UserColumnName="BaseBid" msprop:Generator_ColumnVarNameInTable="columnBaseBid" type="xs:decimal" />
+              <xs:element name="VirtualAdminBid" msprop:Generator_ColumnPropNameInTable="VirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="VirtualAdminBid" msprop:Generator_UserColumnName="VirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnVirtualAdminBid" type="xs:decimal" />
+              <xs:element name="DutyDate" msprop:Generator_ColumnPropNameInTable="DutyDateColumn" msprop:Generator_ColumnPropNameInRow="DutyDate" msprop:Generator_UserColumnName="DutyDate" msprop:Generator_ColumnVarNameInTable="columnDutyDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CashPerDay" msprop:Generator_ColumnPropNameInTable="CashPerDayColumn" msprop:Generator_ColumnPropNameInRow="CashPerDay" msprop:Generator_UserColumnName="CashPerDay" msprop:Generator_ColumnVarNameInTable="columnCashPerDay" type="xs:decimal" />
+              <xs:element name="NonCashPerDay" msprop:Generator_ColumnPropNameInTable="NonCashPerDayColumn" msprop:Generator_ColumnPropNameInRow="NonCashPerDay" msprop:Generator_UserColumnName="NonCashPerDay" msprop:Generator_ColumnVarNameInTable="columnNonCashPerDay" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RankName" msprop:Generator_ColumnPropNameInTable="RankNameColumn" msprop:Generator_ColumnPropNameInRow="RankName" msprop:Generator_UserColumnName="RankName" msprop:Generator_ColumnVarNameInTable="columnRankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntryTreshold" msprop:Generator_ColumnPropNameInTable="EntryTresholdColumn" msprop:Generator_ColumnPropNameInRow="EntryTreshold" msprop:Generator_UserColumnName="EntryTreshold" msprop:Generator_ColumnVarNameInTable="columnEntryTreshold" type="xs:decimal" />
+              <xs:element name="Bid" msprop:Generator_ColumnPropNameInTable="BidColumn" msprop:Generator_ColumnPropNameInRow="Bid" msprop:Generator_UserColumnName="Bid" msprop:Generator_ColumnVarNameInTable="columnBid" type="xs:decimal" />
+              <xs:element name="Paddit" msprop:Generator_ColumnPropNameInTable="PadditColumn" msprop:Generator_ColumnPropNameInRow="Paddit" msprop:Generator_UserColumnName="Paddit" msprop:Generator_ColumnVarNameInTable="columnPaddit" type="xs:decimal" />
+              <xs:element name="Pfictive" msprop:Generator_ColumnPropNameInTable="PfictiveColumn" msprop:Generator_ColumnPropNameInRow="Pfictive" msprop:Generator_UserColumnName="Pfictive" msprop:Generator_ColumnVarNameInTable="columnPfictive" type="xs:decimal" />
+              <xs:element name="Phandjob" msprop:Generator_ColumnPropNameInTable="PhandjobColumn" msprop:Generator_ColumnPropNameInRow="Phandjob" msprop:Generator_UserColumnName="Phandjob" msprop:Generator_ColumnVarNameInTable="columnPhandjob" type="xs:decimal" />
+              <xs:element name="Ppackage" msprop:Generator_ColumnPropNameInTable="PpackageColumn" msprop:Generator_ColumnPropNameInRow="Ppackage" msprop:Generator_UserColumnName="Ppackage" msprop:Generator_ColumnVarNameInTable="columnPpackage" type="xs:decimal" />
+              <xs:element name="ServiceType" msprop:Generator_ColumnPropNameInTable="ServiceTypeColumn" msprop:Generator_ColumnPropNameInRow="ServiceType" msprop:Generator_UserColumnName="ServiceType" msprop:Generator_ColumnVarNameInTable="columnServiceType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserTotal" msprop:Generator_ColumnPropNameInTable="UserTotalColumn" msprop:Generator_ColumnPropNameInRow="UserTotal" msprop:Generator_UserColumnName="UserTotal" msprop:Generator_ColumnVarNameInTable="columnUserTotal" type="xs:decimal" />
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+              <xs:element name="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable5" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_TablePropName="DataTable5" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+              <xs:element name="Duty_Id" msprop:Generator_ColumnPropNameInTable="Duty_IdColumn" msprop:Generator_ColumnPropNameInRow="Duty_Id" msprop:Generator_UserColumnName="Duty_Id" msprop:Generator_ColumnVarNameInTable="columnDuty_Id" type="xs:int" />
+              <xs:element name="Employee_Id" msprop:Generator_ColumnPropNameInTable="Employee_IdColumn" msprop:Generator_ColumnPropNameInRow="Employee_Id" msprop:Generator_UserColumnName="Employee_Id" msprop:Generator_ColumnVarNameInTable="columnEmployee_Id" type="xs:int" />
+              <xs:element name="IsAdmin" msprop:Generator_ColumnPropNameInTable="IsAdminColumn" msprop:Generator_ColumnPropNameInRow="IsAdmin" msprop:Generator_UserColumnName="IsAdmin" msprop:Generator_ColumnVarNameInTable="columnIsAdmin" type="xs:boolean" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:decimal" />
+              <xs:element name="IsVirtualAdmin" msprop:Generator_ColumnPropNameInTable="IsVirtualAdminColumn" msprop:Generator_ColumnPropNameInRow="IsVirtualAdmin" msprop:Generator_UserColumnName="IsVirtualAdmin" msprop:Generator_ColumnVarNameInTable="columnIsVirtualAdmin" type="xs:boolean" />
+              <xs:element name="isArrivedVirtualAdminBid" msprop:Generator_ColumnPropNameInTable="isArrivedVirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="isArrivedVirtualAdminBid" msprop:Generator_UserColumnName="isArrivedVirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnisArrivedVirtualAdminBid" type="xs:boolean" />
+              <xs:element name="BaseBid" msprop:Generator_ColumnPropNameInTable="BaseBidColumn" msprop:Generator_ColumnPropNameInRow="BaseBid" msprop:Generator_UserColumnName="BaseBid" msprop:Generator_ColumnVarNameInTable="columnBaseBid" type="xs:decimal" />
+              <xs:element name="VirtualAdminBid" msprop:Generator_ColumnPropNameInTable="VirtualAdminBidColumn" msprop:Generator_ColumnPropNameInRow="VirtualAdminBid" msprop:Generator_UserColumnName="VirtualAdminBid" msprop:Generator_ColumnVarNameInTable="columnVirtualAdminBid" type="xs:decimal" />
+              <xs:element name="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_UserColumnName="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" type="xs:int" />
+              <xs:element name="DutyDate" msprop:Generator_ColumnPropNameInTable="DutyDateColumn" msprop:Generator_ColumnPropNameInRow="DutyDate" msprop:Generator_UserColumnName="DutyDate" msprop:Generator_ColumnVarNameInTable="columnDutyDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salon_Id" msprop:Generator_ColumnPropNameInTable="Salon_IdColumn" msprop:Generator_ColumnPropNameInRow="Salon_Id" msprop:Generator_UserColumnName="Salon_Id" msprop:Generator_ColumnVarNameInTable="columnSalon_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="User_Id" msprop:Generator_ColumnPropNameInTable="User_IdColumn" msprop:Generator_ColumnPropNameInRow="User_Id" msprop:Generator_UserColumnName="User_Id" msprop:Generator_ColumnVarNameInTable="columnUser_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_UserColumnName="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" type="xs:boolean" />
+              <xs:element name="CashPerDay" msprop:Generator_ColumnPropNameInTable="CashPerDayColumn" msprop:Generator_ColumnPropNameInRow="CashPerDay" msprop:Generator_UserColumnName="CashPerDay" msprop:Generator_ColumnVarNameInTable="columnCashPerDay" type="xs:decimal" />
+              <xs:element name="NonCashPerDay" msprop:Generator_ColumnPropNameInTable="NonCashPerDayColumn" msprop:Generator_ColumnPropNameInRow="NonCashPerDay" msprop:Generator_UserColumnName="NonCashPerDay" msprop:Generator_ColumnVarNameInTable="columnNonCashPerDay" type="xs:decimal" />
+              <xs:element name="TransfersPerDay" msprop:Generator_ColumnPropNameInTable="TransfersPerDayColumn" msprop:Generator_ColumnPropNameInRow="TransfersPerDay" msprop:Generator_UserColumnName="TransfersPerDay" msprop:Generator_ColumnVarNameInTable="columnTransfersPerDay" type="xs:decimal" />
+              <xs:element name="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_UserColumnName="Expr3" msprop:Generator_ColumnVarNameInTable="columnExpr3" type="xs:decimal" />
+              <xs:element name="TotalSertificates" msprop:Generator_ColumnPropNameInTable="TotalSertificatesColumn" msprop:Generator_ColumnPropNameInRow="TotalSertificates" msprop:Generator_UserColumnName="TotalSertificates" msprop:Generator_ColumnVarNameInTable="columnTotalSertificates" type="xs:decimal" />
+              <xs:element name="IsArrived" msprop:Generator_ColumnPropNameInTable="IsArrivedColumn" msprop:Generator_ColumnPropNameInRow="IsArrived" msprop:Generator_UserColumnName="IsArrived" msprop:Generator_ColumnVarNameInTable="columnIsArrived" type="xs:boolean" />
+              <xs:element name="Taken" msprop:Generator_ColumnPropNameInTable="TakenColumn" msprop:Generator_ColumnPropNameInRow="Taken" msprop:Generator_UserColumnName="Taken" msprop:Generator_ColumnVarNameInTable="columnTaken" type="xs:decimal" />
+              <xs:element name="Income" msprop:Generator_ColumnPropNameInTable="IncomeColumn" msprop:Generator_ColumnPropNameInRow="Income" msprop:Generator_UserColumnName="Income" msprop:Generator_ColumnVarNameInTable="columnIncome" type="xs:decimal" />
+              <xs:element name="newcol" msprop:Generator_ColumnPropNameInTable="newcolColumn" msprop:Generator_ColumnPropNameInRow="newcol" msprop:Generator_UserColumnName="newcol" msprop:Generator_ColumnVarNameInTable="columnnewcol" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable6" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent" msprop:Generator_TablePropName="DataTable6" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RankName" msprop:Generator_UserColumnName="RankName" msprop:Generator_ColumnPropNameInTable="RankNameColumn" msprop:Generator_ColumnPropNameInRow="RankName" msprop:Generator_ColumnVarNameInTable="columnRankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeSalary" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EmployeeSalary" msprop:Generator_ColumnPropNameInTable="EmployeeSalaryColumn" msprop:Generator_ColumnPropNameInRow="EmployeeSalary" msprop:Generator_ColumnVarNameInTable="columnEmployeeSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvancies" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EmployeeAvancies" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesColumn" msprop:Generator_ColumnPropNameInRow="EmployeeAvancies" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvancies" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvanciesFine" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EmployeeAvanciesFine" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesFineColumn" msprop:Generator_ColumnPropNameInRow="EmployeeAvanciesFine" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvanciesFine" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvanciesTotal" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EmployeeAvanciesTotal" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesTotalColumn" msprop:Generator_ColumnPropNameInRow="EmployeeAvanciesTotal" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvanciesTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Give" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Give" msprop:Generator_ColumnPropNameInTable="GiveColumn" msprop:Generator_ColumnPropNameInRow="Give" msprop:Generator_ColumnVarNameInTable="columnGive" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable7" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent" msprop:Generator_TablePropName="DataTable7" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_RowClassName="DataTable7Row" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_UserTableName="DataTable7">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_UserColumnName="FullName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RankName" msprop:Generator_ColumnPropNameInRow="RankName" msprop:Generator_ColumnPropNameInTable="RankNameColumn" msprop:Generator_ColumnVarNameInTable="columnRankName" msprop:Generator_UserColumnName="RankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeSalary" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="EmployeeSalary" msprop:Generator_ColumnPropNameInTable="EmployeeSalaryColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeSalary" msprop:Generator_UserColumnName="EmployeeSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvancies" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="EmployeeAvancies" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvancies" msprop:Generator_UserColumnName="EmployeeAvancies" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvanciesFine" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="EmployeeAvanciesFine" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesFineColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvanciesFine" msprop:Generator_UserColumnName="EmployeeAvanciesFine" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeAvanciesTotal" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="EmployeeAvanciesTotal" msprop:Generator_ColumnPropNameInTable="EmployeeAvanciesTotalColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeAvanciesTotal" msprop:Generator_UserColumnName="EmployeeAvanciesTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Give" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Give" msprop:Generator_ColumnPropNameInTable="GiveColumn" msprop:Generator_ColumnVarNameInTable="columnGive" msprop:Generator_UserColumnName="Give" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DutyT" msprop:Generator_RowEvHandlerName="DutyTRowChangeEventHandler" msprop:Generator_RowDeletedName="DutyTRowDeleted" msprop:Generator_RowDeletingName="DutyTRowDeleting" msprop:Generator_RowEvArgName="DutyTRowChangeEvent" msprop:Generator_TablePropName="DutyT" msprop:Generator_RowChangedName="DutyTRowChanged" msprop:Generator_RowChangingName="DutyTRowChanging" msprop:Generator_TableClassName="DutyTDataTable" msprop:Generator_RowClassName="DutyTRow" msprop:Generator_TableVarName="tableDutyT" msprop:Generator_UserTableName="DutyT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="newcol" msprop:Generator_ColumnPropNameInRow="newcol" msprop:Generator_ColumnPropNameInTable="newcolColumn" msprop:Generator_ColumnVarNameInTable="columnnewcol" msprop:Generator_UserColumnName="newcol" type="xs:dateTime" />
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AvanciesT" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="DataTable4_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable4" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="DataTable5_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable5" />
+      <xs:field xpath="mstns:Id" />
+      <xs:field xpath="mstns:Expr1" />
+    </xs:unique>
+    <xs:unique name="DutyT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DutyT" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

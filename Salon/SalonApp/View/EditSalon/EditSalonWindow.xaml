@@ -1,0 +1,27 @@
+﻿<Window x:Class="SalonApp.View.EditSalon.EditSalonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.EditSalon"
+        mc:Ignorable="d"
+Title="Редактировать салон" Height="250" Width="400">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#E7ECEF" Margin="10" Grid.Column="1" CornerRadius="5">
+            <StackPanel VerticalAlignment="Center" Margin="25">
+                <TextBlock Margin="4" Text="Наименование" TextAlignment="Center" FontSize="17"/>
+                <TextBox Text="{Binding Path=SelectedSalon.SalonName}" Margin="4" FontSize="17"/>
+                <TextBlock Margin="4" Text="Директор" TextAlignment="Center" FontSize="17"/>
+                <TextBox Text="{Binding Path=SelectedSalon.Director}" Margin="4" FontSize="17"/>
+
+                <Button Command="{Binding Path=AddSalonCommand}" Margin="4" FontSize="17" Content="Сохранить"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

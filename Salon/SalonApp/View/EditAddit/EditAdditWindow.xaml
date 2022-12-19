@@ -1,0 +1,36 @@
+﻿<Window x:Class="SalonApp.View.EditAddit.EditAdditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.EditAddit"
+        mc:Ignorable="d" TextBlock.FontFamily="bahnschrift"
+        Title="Редактирование" Background="#E7ECEF" Height="500" Width="500">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="White" Grid.Column="1" Margin="5" CornerRadius="5">
+            <StackPanel  Margin="5" Grid.Column="1" >
+                <TextBlock Text="Имя клиента" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox  Text="{Binding Path=SelectedAddit.ClientName}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Наличка" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="LightGreen" Text="{Binding Path=SelectedAddit.Cash}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Безнал" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="RosyBrown" Text="{Binding Path=SelectedAddit.NonCash}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Сертификат" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="SkyBlue" Text="{Binding Path=SelectedAddit.Sertificate}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Наличка(скидка)" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="LightGreen" Text="{Binding Path=SelectedAddit.DiscountCash}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Безнал(скидка)" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="RosyBrown" Text="{Binding Path=SelectedAddit.DiscountNonCash}" FontSize="17" Margin="10,2,10,2" />
+                <TextBlock Text="Фиктив" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBox Background="LightBlue" Text="{Binding Path=SelectedAddit.Fictive}" FontSize="17" Margin="10,2,10,2" />
+                <Button Command="{Binding Path=EditAdd}" Content="Сохранить" FontSize="17" Margin="10,2,10,2"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

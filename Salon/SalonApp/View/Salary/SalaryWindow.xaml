@@ -1,0 +1,322 @@
+﻿<Window x:Class="Salon.View.Salary.SalaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salon.View.Salary" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d" Background="#E7ECEF"
+        Title="Сверка зарплат" Height="752" Width="966">
+    <Grid>
+
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="160"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border>
+                <StackPanel Background="White" Orientation="Horizontal" Grid.Row="0" Margin="10">
+                    <TextBlock Margin="5,0,0,0" Text="Смена" FontSize="17"/>
+                    <TextBlock Margin="5,0,0,0" FontSize="17" Text="{Binding Path=CurrentDuty.DutyDate}"/>
+                </StackPanel>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
+                </Border.Effect>
+            </Border>
+ 
+            <Border Margin="10" CornerRadius="5" Background="White" Grid.Row="1">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
+                </Border.Effect>
+                <Grid Margin="2" Background="White" Grid.Row="1">
+
+                <TextBlock FontSize="16" Text="Услуги" Margin="10,5,5,5"/>
+                <DataGrid ItemsSource="{Binding Path=Journals}" FontSize="12" Grid.Row="1" Margin="10,30,10,10">
+
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Binding="{Binding Path=Service.ServiceName}"  Width="*" Header="Услуга"/>
+                        <DataGridTextColumn Binding="{Binding Path=ClientName}"  Width="*" Header="Клиент"/>
+                        <DataGridTextColumn Binding="{Binding Path=Cash}" Width="*" Header="Наличка">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=NonCash}" Width="*" Header="Безнал">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="RosyBrown" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Transfer}" Width="*" Header="Перевод">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="CadetBlue" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Fictive}" Width="*" Header="Фиктив">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Sertificate}" Width="*" Header="Сертификат">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Package}" Width="*" Header="Пакет">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="White" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PackageCash}" Width="*" Header="Наличка(пакет)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PackageNonCash}" Width="*" Header="Безнал(пакет)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="RosyBrown" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=AdditCash}" Width="*" Header="Наличка(допы)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=AdditNonCash}" Width="*" Header="Безнал(допы)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="RosyBrown" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=HandJobCash}" Width="*" Header="Наличка(руч.работа)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=HandJobNonCash}" Width="*" Header="Безнал(руч.работа)">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="RosyBrown" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Total}" Width="*" Header="Итог"/>
+                        <DataGridTextColumn Binding="{Binding Path=UserTotal}" Width="*" Header="Начисления"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                </Grid>
+            </Border>
+            <Border Margin="10" CornerRadius="5" Background="White" Grid.Row="2">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
+                </Border.Effect>
+                <Grid Margin="10" Background="White" Grid.Row="2">
+                    <TextBlock FontSize="16" Text="Дополнительные продажи" Margin="10,5,5,5"/>
+
+                    <DataGrid ItemsSource="{Binding Path=Additionals}" FontSize="12" Grid.Row="1" Margin="10,30,10,10">
+
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding Path=ClientName}"  Width="*" Header="Клиент"/>
+                            <DataGridTextColumn Binding="{Binding Path=Cash}" Width="*" Header="Наличка">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="LightGreen" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=NonCash}" Width="*" Header="Безнал">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="CadetBlue" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Fictive}" Width="*" Header="Фиктив">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="CadetBlue" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=Sertificate}" Width="*" Header="Сертификат">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="CadetBlue" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DiscountCash}" Width="*" Header="Наличка(скидка)">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="LightGreen" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=DiscountNonCash}" Width="*" Header="Безнал(скидка)">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="CadetBlue" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Path=UserTotal}" Width="*" Header="Начисления"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </Border>
+            <StackPanel Grid.Row="3" >
+                <Border Background="White" Grid.Row="1"  CornerRadius="5" Margin="10,10,10,10" Height="145">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <Grid Margin="5" HorizontalAlignment="Center" Grid.Row="1">
+                        <DockPanel Width="auto" VerticalAlignment="Center"  HorizontalAlignment="Center" >
+                            <Border Background="#E7ECEF" CornerRadius="5" Margin="3,3,3,3" HorizontalAlignment="Center" Width="130" VerticalAlignment="Center" >
+                                <StackPanel Margin="5" Width="120">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Center" Margin="5" Text="Всего отчислений(услуги)"/>
+                                    <StackPanel Height="50">
+                                        <TextBlock Foreground="Black" FontSize="20" TextAlignment="Center" Margin="5" Text="{Binding Path=TotalIn}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Border>
+                            <Border Background="#E7ECEF" CornerRadius="5" Margin="10,3,3,3" HorizontalAlignment="Center" Width="130" VerticalAlignment="Center" >
+                                <StackPanel Margin="5" Width="120">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Center" Margin="5" Text="Всего отчислений(доп.продажи)"/>
+                                    <StackPanel Height="50">
+                                        <TextBlock Foreground="Black" FontSize="20" TextAlignment="Center" Margin="5" Text="{Binding Path=TotalIn2}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Border>
+                            <Border Background="#E7ECEF" CornerRadius="5" Margin="10,3,3,3" HorizontalAlignment="Center" Width="130" VerticalAlignment="Center" >
+                                <StackPanel Margin="5" Width="120">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Center" Margin="5" Text="Ставка виртуального админа"/>
+                                    <StackPanel Height="50">
+                                        <TextBlock Foreground="Black" FontSize="20" TextAlignment="Center" Margin="5" Text="{Binding Path=AdminBid}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Border>
+                            <Border Background="#E7ECEF" CornerRadius="5" Margin="10,3,3,3" HorizontalAlignment="Center" Width="130" VerticalAlignment="Center" >
+                                <StackPanel Height="125" Margin="5" Width="120">
+                                    <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="Black" TextAlignment="Center" Margin="5" Text="Базовая ставка"/>
+                                    <StackPanel VerticalAlignment="Bottom" Margin="0,40,0,0" Height="50">
+                                        <TextBlock Foreground="Black" FontSize="20" TextAlignment="Center" Margin="5" Text="{Binding Path=Bid}" HorizontalAlignment="Stretch" Height="40"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Border>
+                        </DockPanel>
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+        </Grid>
+        <Border CornerRadius="5"  Width="280" Background="White"  Margin="10" Grid.Column="1" Grid.Row="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1"/>
+            </Border.Effect>
+
+            <StackPanel  Background="White"  Margin="2" Grid.Column="1" Grid.Row="1">
+            <Border Background="White"  CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Height="150" Width="150" BorderBrush="Gray">
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel>
+                        <Image Source="/src/icons/contacts_512px.png"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Border>
+            <Border Width="270"  CornerRadius="5" Background="#E7ECEF"  HorizontalAlignment="Center" Margin="10">
+                <StackPanel Margin="15,5,15,5" >
+                <TextBlock TextAlignment="Center" Text="Проценты сотрудника" Margin="5"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Сотрудник" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="80,0,0,0" Text="{Binding Path=SelectedEmployee.FullName}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="% c пакета" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="80,0,0,0" Text="{Binding Path=SelectedEmployee.Ppackage}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="% c допа" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="90,0,0,0" Text="{Binding Path=SelectedEmployee.Paddit}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="% c фиктива" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="71,0,0,0" Text="{Binding Path=SelectedEmployee.Pfictive}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="% c ручной работы" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="32,0,0,0" Text="{Binding Path=SelectedEmployee.Phandjob}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Порог мин.зп" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="64,0,0,0" Text="{Binding Path=SelectedEmployee.EntryTreshold}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ставка" Foreground="Black" FontSize="12"/>
+                    <TextBlock Margin="102,0,0,0" Text="{Binding Path=SelectedEmployee.Bid}" Foreground="Black" FontSize="12"/>
+                </StackPanel>
+                <TextBlock Visibility="{Binding Path=IsVis}" Text="Проценты админа" TextAlignment="Center" Margin="5"/>
+                <StackPanel Visibility="{Binding Path=IsVis}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="% с пакета" Foreground="Black" FontSize="12"/>
+                        <TextBlock Margin="80,0,0,0" Text="{Binding Path=User.Ppackage}" Foreground="Black" FontSize="12"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="% с допа" Foreground="Black" FontSize="12"/>
+                            <TextBlock Margin="88,0,0,0" Text="{Binding Path=User.Paddit}" Foreground="Black" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ставка вирт. админа" Foreground="Black" FontSize="12"/>
+                        <TextBlock Margin="25,0,0,0" Text="{Binding Path=SelectedEmployee.Bid}" Foreground="Black" FontSize="12"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            </Border>
+            <DataGrid ItemsSource="{Binding Path=SelectedEmployee.Enrollments}" Margin="10" Height="251">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Service.ServiceName}" Width="*" Header="Услуга"/>
+                    <DataGridTextColumn Binding="{Binding Path=Percent}"  Width="*" Header="Процент"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        </Border>
+    </Grid>
+</Window>

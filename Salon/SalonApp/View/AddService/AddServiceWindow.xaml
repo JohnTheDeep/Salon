@@ -1,0 +1,34 @@
+﻿<Window x:Class="SalonApp.View.AddService.AddServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.AddService"
+        mc:Ignorable="d" Background="#E7ECEF" TextBlock.FontFamily="bahnschrift"
+        Title="Услуги" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+        </Grid.RowDefinitions>
+
+        <Border Background="White" CornerRadius="5" Margin="10">
+            <DataGrid SelectedItem="{Binding Path=SelectedService}" AutoGenerateColumns="False" Margin="10" ItemsSource="{Binding Path=ServicesList}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*"  Header="Наименование" Binding="{Binding Path=ServiceName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Background="White" CornerRadius="5" Margin="5,10,10,10" Grid.Column="1">
+            <StackPanel >
+                <Button Command="{Binding Path=OpenServiceWindowCommand}" Margin="5,5,5,2" FontSize="17" Content="Добавить"/>
+                <Button Command="{Binding Path=OpenEditServiceWindowCommand}" Margin="5,2,5,2" FontSize="17" Content="Редактировать"/>
+                <Button Margin="5,2,5,2" CommandParameter="{Binding Path=SelectedService}" Command="{Binding Path=DeleteServiceCommand}" FontSize="17" Content="Удалить"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SalonApp</id>
+    <version>1.0.0</version>
+    <authors>SalonApp</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="ReportViewerProject" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="FontAwesome.WPF" version="4.7.0.9" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="6.0.8" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ReportViewer.Common" version="10.0.40219.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ReportViewer.Runtime.Common" version="12.0.2402.15" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ReportingServices.ReportViewerControl.Winforms" version="150.900.148" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.SqlServer.SqlManagementObjects" version="161.47027.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.39" exclude="Build,Analyzers" />
+        <dependency id="ReportViewerCore.NETCore" version="15.1.17" exclude="Build,Analyzers" />
+        <dependency id="SharpVectors" version="1.8.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.4.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows7.0/1f49b.ico" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/NLog.config" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="F:\JustTraine\Salon\SalonApp\bin\Release\net6.0-windows\SalonApp.runtimeconfig.json" target="lib\net6.0-windows7.0\SalonApp.runtimeconfig.json" />
+    <file src="F:\JustTraine\Salon\SalonApp\bin\Release\net6.0-windows\SalonApp.dll" target="lib\net6.0-windows7.0\SalonApp.dll" />
+    <file src="F:\JustTraine\Salon\SalonApp\1f49b.ico" target="content\1f49b.ico" />
+    <file src="F:\JustTraine\Salon\SalonApp\1f49b.ico" target="contentFiles\any\net6.0-windows7.0\1f49b.ico" />
+    <file src="F:\JustTraine\Salon\SalonApp\NLog.config" target="content\NLog.config" />
+    <file src="F:\JustTraine\Salon\SalonApp\NLog.config" target="contentFiles\any\net6.0-windows7.0\NLog.config" />
+  </files>
+</package>

@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Salon.UserControls.CheckBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Salon.UserControls" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="700">
+    <StackPanel  Background="WhiteSmoke">
+        <TextBlock  Margin="5" Text="{Binding Path=Service.ServiceName}" FontWeight="DemiBold" FontSize="25"/>
+        <DataGrid  SelectedItem="{Binding Path=SelectedDuty}" IsReadOnly="true" ItemsSource="{Binding Path=Journals}" ColumnWidth="auto" AutoGenerateColumns="False" Margin="5,15,5,5" Height="257">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="PreviewMouseDoubleClick">
+                    <b:InvokeCommandAction Command="{Binding MBCCheck}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Мастер" Binding="{Binding Path=Employee.FullName}"/>
+                <DataGridTextColumn Width="*" Header="Наличка" Binding="{Binding Path=TotalCash}"/>
+                <DataGridTextColumn Width="*" Header="Безнал" Binding="{Binding Path=TotalNonCash}"/>
+                <DataGridTextColumn Width="*" Header="Фиктив" Binding="{Binding Path=TotalFictive}"/>
+                <DataGridTextColumn Width="*" Header="Сертификат" Binding="{Binding Path=TotalSertificates}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Margin="5" BorderBrush="Gray" BorderThickness="0.5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Margin="2" VerticalAlignment="Bottom" FontSize="12" Text="Итого наличка: "/>
+                <TextBlock Margin="2" Text="{Binding Path=TotalCash}" FontSize="12" FontWeight="Bold"/>
+                <TextBlock  Margin="2" VerticalAlignment="Bottom" FontSize="12" Text="Итого безнал: "/>
+                <TextBlock Margin="2" Text="{Binding Path=TotalNonCash}" FontSize="12" FontWeight="Bold"/>
+                <TextBlock  Margin="2" VerticalAlignment="Bottom" FontSize="12" Text="Итого Фиктив: "/>
+                <TextBlock Margin="2" Text="{Binding Path=TotalFictive}" FontSize="12" FontWeight="Bold"/>
+                <TextBlock  Margin="2" VerticalAlignment="Bottom" FontSize="12" Text="Итого сертификаты: "/>
+                <TextBlock Margin="2" Text="{Binding Path=AmountSertificate}" FontSize="12" FontWeight="Bold"/>
+                <TextBlock  Margin="2" VerticalAlignment="Bottom" FontSize="12" Text="Итого : "/>
+                <TextBlock Margin="2" Text="{Binding Path=TotalSum}" FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,109 @@
+﻿<Window x:Class="SalonApp.View.JournalView.JournalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalonApp.View.JournalView"
+        mc:Ignorable="d" Background="#E7ECEF"
+        Title="Просмотр" Height="510" Width="780"
+      >
+    <Grid Margin="5" TextBlock.FontFamily="bahnschrift">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+            <RowDefinition Height="125"/>
+        </Grid.RowDefinitions>
+        <Border Background="White" CornerRadius="5" Margin="10,5,10,5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Service.ServiceName}" FontSize="17" HorizontalAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Right" Margin="10,0,0,0" Text="{Binding Path=Employee.FullName}" FontSize="17"/>
+                <TextBlock HorizontalAlignment="Right" Margin="10,0,0,0" Text="{Binding Path=Duty.DutyDate}" FontSize="17"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Background="White" CornerRadius="5" Margin="10,0,10,10">
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Path=Journals}" AutoGenerateColumns="False"  Margin="15,5,10,15" VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Имя клиента" Binding="{Binding Path=ClientName}"/>
+                    <DataGridTextColumn Width="*" Header="Наличка" Binding="{Binding Path=Cash}"/>
+                    <DataGridTextColumn Width="*" Header="Безнал" Binding="{Binding Path=NonCash}"/>
+                    <DataGridTextColumn Width="*" Header="Перевод" Binding="{Binding Path=Transfer}"/>
+                    <DataGridTextColumn Width="*" Header="Фиктив" Binding="{Binding Path=Fictive}"/>
+                    <DataGridTextColumn Width="*" Header="Пакет" Binding="{Binding Path=Package}"/>
+                    <DataGridTextColumn Width="*" Header="Наличка(пакет)" Binding="{Binding Path=PackageCash}"/>
+                    <DataGridTextColumn Width="*" Header="Безнал(пакет)" Binding="{Binding Path=PackageNonCash}"/>
+                    <DataGridTextColumn Width="*" Header="Наличка(допы)" Binding="{Binding Path=AdditCash}"/>
+                    <DataGridTextColumn Width="*" Header="Бензал(допы)" Binding="{Binding Path=AdditNonCash}"/>
+                    <DataGridTextColumn Width="*" Header="Наличка(ручная работа)" Binding="{Binding Path=HandJobCash}"/>
+                    <DataGridTextColumn Width="*" Header="Безнал(ручная работа)" Binding="{Binding Path=HandJobNonCash}"/>
+                    <DataGridTextColumn Width="*" Header="Сертификат" Binding="{Binding Path=Sertificate}"/>
+                    <DataGridTextColumn Width="*" Header="Итого" Binding="{Binding Path=Total}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <DockPanel  Background="#E7ECEF" Grid.Row="2" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock Height="auto" TextWrapping="Wrap" TextAlignment="Center" Margin="5,5,5,64" Text="Наличка за день (услуга)"/>
+                    <StackPanel Margin="0,0,0,0" VerticalAlignment="Bottom" Height="50">
+                        <TextBlock FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=TotalCash}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="Безнал за день (услуга)"/>
+                    <StackPanel Margin="0,10,0,0" VerticalAlignment="Bottom" Height="50">
+                        <TextBlock  FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=TotalNonCash}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="Наличка(пакеты)"/>
+                    <StackPanel VerticalAlignment="Bottom" Height="50">
+                        <TextBlock FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=PackagesCahs}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="Безнал(пакеты)"/>
+                    <StackPanel VerticalAlignment="Bottom" Height="50">
+                        <TextBlock FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=PackagesNonCahs}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="Сертификаты(услуга)"/>
+                    <StackPanel VerticalAlignment="Bottom" Height="50">
+                        <TextBlock FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=Sertificates}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="ЗП админу за пакеты(услуга)"/>
+                    <StackPanel VerticalAlignment="Bottom" Height="50">
+                        <TextBlock  FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=AdminTotal}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border CornerRadius="5" Background="White" Margin="10" Width="100" >
+                <Grid Margin="5" Width="90">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5" Text="ЗП мастеру за день (услуга)"/>
+                    <StackPanel VerticalAlignment="Bottom" Height="50">
+                        <TextBlock FontSize="25" TextAlignment="Center" Margin="5" Text="{Binding Path=EmplTotal}" HorizontalAlignment="Stretch" Height="40"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>
